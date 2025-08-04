@@ -1,29 +1,78 @@
 import { Link } from "react-router-dom"
-import { 
-  Users, 
-  Calendar, 
-  Code, 
-  Trophy, 
-  Lightbulb, 
-  Rocket, 
-  Shield, 
-  MapPin, 
-  Mail, 
+import { useState, useEffect } from "react"
+import {
+  Users,
+  Calendar,
+  Code,
+  Trophy,
+  Lightbulb,
+  Rocket,
+  Shield,
+  MapPin,
+  Mail,
   Phone,
   ArrowRight,
   Quote,
   User,
 } from "lucide-react"
 
+// Counter component for animated numbers
+function Counter({ end, duration = 2000 }) {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    let startTime = null
+    const startValue = 0
+    const endValue = parseInt(end)
+
+    const animate = (currentTime) => {
+      if (!startTime) startTime = currentTime
+      const progress = Math.min((currentTime - startTime) / duration, 1)
+
+      const currentCount = Math.floor(progress * (endValue - startValue) + startValue)
+      setCount(currentCount)
+
+      if (progress < 1) {
+        requestAnimationFrame(animate)
+      }
+    }
+
+    requestAnimationFrame(animate)
+  }, [end, duration])
+
+  return <span>{count}+</span>
+}
+
 export default function HomePage() {
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const revealElements = document.querySelectorAll('.reveal');
+    revealElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-background to-muted/50 py-20">
+      <section className="bg-gradient-to-br from-background to-muted/50 py-20 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full animate-float"></div>
+          <div className="absolute top-40 right-20 w-16 h-16 bg-accent/10 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-primary/5 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
+        </div>
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Side */}
-            <div className="space-y-6">
+            <div className="space-y-6 reveal">
               <div className="inline-flex items-center px-3 py-1 rounded-full bg-accent/80 text-black text-sm font-medium">
                 Learn - Build - Innovate
               </div>
@@ -37,13 +86,13 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/events"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 >
                   Explore Events
                 </Link>
                 <Link
                   to="/join"
-                  className="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-accent hover:text-primary-foreground transition-colors"
+                  className="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-accent hover:text-primary-foreground transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 >
                   Join Us
                 </Link>
@@ -51,7 +100,7 @@ export default function HomePage() {
             </div>
 
             {/* Right Side */}
-            <div className="flex justify-center lg:justify-end">
+            <div className="flex justify-center lg:justify-end reveal" style={{ animationDelay: '0.3s' }}>
               <div className="relative">
                 <div className="w-96 h-96 flex items-center justify-center">
                   {/* Light theme logo */}
@@ -74,18 +123,27 @@ export default function HomePage() {
       </section>
 
       {/* Key Statistics */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-muted/30 relative overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 25% 25%, hsl(var(--primary)) 2px, transparent 2px)`,
+            backgroundSize: '50px 50px'
+          }}></div>
+        </div>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Users, number: "1500+", label: "Members" },
-              { icon: Calendar, number: "50+", label: "Events" },
-              { icon: Code, number: "200+", label: "Projects" },
-              { icon: Trophy, number: "30+", label: "Awards" },
+              { icon: Users, number: "1500", label: "Members" },
+              { icon: Calendar, number: "50", label: "Events" },
+              { icon: Code, number: "200", label: "Projects" },
+              { icon: Trophy, number: "30", label: "Awards" },
             ].map((stat, index) => (
-              <div key={index} className="bg-background rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-105">
+              <div key={index} className="bg-background rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-105 border border-primary/20 reveal" style={{ animationDelay: `${index * 0.1}s` }}>
                 <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-                <div className="text-3xl font-bold text-primary mb-1">{stat.number}</div>
+                <div className="text-3xl font-bold text-primary mb-1">
+                  <Counter end={stat.number} duration={2000 + index * 500} />
+                </div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
@@ -94,9 +152,11 @@ export default function HomePage() {
       </section>
 
       {/* About Us */}
-      <section className="py-20">
+      <section className="py-20 relative">
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 reveal">
             <h2 className="text-4xl font-bold mb-4">
               About <span className="from-primary to-accent bg-gradient-to-r text-transparent bg-clip-text">Us</span>
             </h2>
@@ -123,7 +183,7 @@ export default function HomePage() {
                 description: "Collaboration, innovation, continuous learning, and excellence in everything we do."
               }
             ].map((item, index) => (
-              <div key={index} className="bg-muted/30 rounded-lg p-6 text-center hover:shadow-md transition-all duration-300 transform hover:scale-105">
+              <div key={index} className="bg-muted/30 rounded-lg p-6 text-center hover:shadow-md transition-all duration-300 transform hover:scale-105 border border-primary/20 reveal" style={{ animationDelay: `${index * 0.2}s` }}>
                 <item.icon className="w-12 h-12 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-bold mb-3">{item.title}</h3>
                 <p className="text-muted-foreground">{item.description}</p>
@@ -134,9 +194,14 @@ export default function HomePage() {
       </section>
 
       {/* Events Spotlight */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-muted/30 relative overflow-hidden">
+        {/* Animated background */}
+        <div className="absolute inset-0">
+          <div className="absolute top-10 right-10 w-32 h-32 bg-accent/5 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-10 left-10 w-24 h-24 bg-primary/5 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+        </div>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 reveal">
             <h2 className="text-4xl font-bold mb-4">
               Upcoming <span className="from-primary to-accent bg-gradient-to-r text-transparent bg-clip-text">Events</span>
             </h2>
@@ -150,6 +215,7 @@ export default function HomePage() {
                 {[
                   {
                     title: "HackOverflow 2024",
+                    image: "/placeholder.svg",
                     status: "Ongoing",
                     statusColor: "bg-green-100 text-green-800",
                     date: "June 15-17, 2024",
@@ -157,13 +223,15 @@ export default function HomePage() {
                   },
                   {
                     title: "IconCoderZ Spring Challenge",
+                    image: "/placeholder.svg",
                     status: "Ongoing",
                     statusColor: "bg-green-100 text-green-800",
                     date: "May 6, 2024",
                     description: "Test your coding skills in our competitive programming contest with challenges for all skill levels."
                   }
                 ].map((event, index) => (
-                  <div key={index} className="bg-background rounded-lg p-6 shadow-sm">
+                  <div key={index} className="bg-background rounded-lg p-6 shadow-sm border border-primary/20">
+                    <img src={event.image} alt={event.title} className="w-full h-96 object-cover mb-4 rounded-lg" />
                     <div className="flex items-start justify-between mb-3">
                       <h4 className="text-lg font-bold">{event.title}</h4>
                       <span className={`px-2 py-1 rounded-full text-xs font-medium ${event.statusColor}`}>
@@ -190,6 +258,7 @@ export default function HomePage() {
                 {[
                   {
                     title: "Code BattleGround",
+                    image: "/placeholder.svg",
                     status: "Upcoming",
                     statusColor: "bg-blue-100 text-blue-800",
                     date: "June 30, 2024",
@@ -197,13 +266,15 @@ export default function HomePage() {
                   },
                   {
                     title: "Summer Coding Bootcamp",
+                    image: "/placeholder.svg",
                     status: "Upcoming",
                     statusColor: "bg-blue-100 text-blue-800",
                     date: "July 1-15, 2024",
                     description: "Intensive two-week training program covering web development, machine learning, and more."
                   }
                 ].map((event, index) => (
-                  <div key={index} className="bg-background rounded-lg p-6 shadow-sm">
+                  <div key={index} className="bg-background rounded-lg p-6 shadow-sm border border-primary/20">
+                    <img src={event.image} alt={event.title} className="w-full h-96 object-cover mb-4 rounded-lg" />
                     <div className="flex items-start justify-between mb-3">
                       <h4 className="text-lg font-bold">{event.title}</h4>
                       <span className={`px-2 py-1 rounded-full text-xs font-medium ${event.statusColor}`}>
@@ -227,10 +298,10 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="text-center">
+          <div className="text-center reveal">
             <Link
               to="/events"
-              className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               View All Events
             </Link>
@@ -239,9 +310,14 @@ export default function HomePage() {
       </section>
 
       {/* Our Flagship Events */}
-      <section className="py-20">
+      <section className="py-20 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-16 h-16 bg-primary/5 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-20 h-20 bg-accent/5 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+        </div>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 reveal">
             <h2 className="text-4xl font-bold mb-4">
               Our Flagship <span className="from-primary to-accent bg-gradient-to-r text-transparent bg-clip-text">Events</span>
             </h2>
@@ -251,16 +327,19 @@ export default function HomePage() {
             {[
               {
                 title: "HackOverflow",
+                image: "/placeholder.svg",
                 description: "Our annual hackathon where participants collaborate to create innovative solutions to real-world problems. Join us for 48 hours of coding, learning, and networking.",
                 nextEvent: "Next Event: April 15-17, 2024"
               },
               {
                 title: "IconCoderZ",
+                image: "/placeholder.svg",
                 description: "A competitive programming contest, designed to test your coding skills and problem-solving abilities. Participate in beginner and expert categories.",
                 nextEvent: "Next Event: May 9, 2024"
               }
             ].map((event, index) => (
-              <div key={index} className="bg-muted/30 rounded-lg p-8">
+              <div key={index} className="bg-muted/30 rounded-lg p-8 border border-primary/20 hover:shadow-lg transition-all duration-300 transform hover:scale-105 reveal" style={{ animationDelay: `${index * 0.2}s` }}>
+                <img src={event.image} alt={event.title} className="w-full h-96 object-cover mb-4 rounded-lg" />
                 <h3 className="text-2xl font-bold mb-4">{event.title}</h3>
                 <p className="text-muted-foreground mb-4">{event.description}</p>
                 <p className="text-sm text-primary font-medium mb-4">{event.nextEvent}</p>
@@ -277,9 +356,16 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-muted/30 relative overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 75% 75%, hsl(var(--accent)) 2px, transparent 2px)`,
+            backgroundSize: '60px 60px'
+          }}></div>
+        </div>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 reveal">
             <h2 className="text-4xl font-bold mb-4">
               What Our Members <span className="from-primary to-accent bg-gradient-to-r text-transparent bg-clip-text">Say</span>
             </h2>
@@ -303,7 +389,7 @@ export default function HomePage() {
                 title: "Data Scientist at Amazon"
               }
             ].map((testimonial, index) => (
-              <div key={index} className="bg-background rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-105">
+              <div key={index} className="bg-background rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-105 border border-primary/20 reveal" style={{ animationDelay: `${index * 0.15}s` }}>
                 <Quote className="w-8 h-8 text-primary mb-4" />
                 <p className="text-muted-foreground mb-4 italic">"{testimonial.quote}"</p>
                 <div className="flex items-center gap-2">
@@ -322,24 +408,30 @@ export default function HomePage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20">
+      <section className="py-20 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
+        <div className="absolute top-10 left-1/4 w-24 h-24 bg-primary/10 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-10 right-1/4 w-20 h-20 bg-accent/10 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">
-            Ready to <span className="from-primary to-accent bg-gradient-to-r text-transparent bg-clip-text">Join Us?</span>
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Become a part of SRKR Coding Club and enhance your coding skills, participate in exciting events, and connect with like-minded individuals.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="reveal">
+            <h2 className="text-4xl font-bold mb-4">
+              Ready to <span className="from-primary to-accent bg-gradient-to-r text-transparent bg-clip-text">Join Us?</span>
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Become a part of SRKR Coding Club and enhance your coding skills, participate in exciting events, and connect with like-minded individuals.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center reveal" style={{ animationDelay: '0.3s' }}>
             <Link
               to="/register"
-              className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               Register Now <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-accent hover:text-primary-foreground transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-accent hover:text-primary-foreground transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               Contact Us
             </Link>
@@ -348,9 +440,16 @@ export default function HomePage() {
       </section>
 
       {/* Contact Us */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-muted/30 relative overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 50% 50%, hsl(var(--primary)) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 reveal">
             <h2 className="text-4xl font-bold mb-4">
               Contact <span className="from-primary to-accent bg-gradient-to-r text-transparent bg-clip-text">Us</span>
             </h2>
@@ -377,7 +476,7 @@ export default function HomePage() {
                 content: "+91 1234567890"
               }
             ].map((contact, index) => (
-              <div key={index} className="bg-background rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-105">
+              <div key={index} className="bg-background rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-105 border border-primary/20 dark:border-primary/10 reveal" style={{ animationDelay: `${index * 0.1}s` }}>
                 <contact.icon className="w-8 h-8 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-bold mb-2">{contact.title}</h3>
                 <p className="text-muted-foreground">{contact.content}</p>
@@ -388,19 +487,23 @@ export default function HomePage() {
       </section>
 
       {/* Newsletter */}
-      <section className="py-16">
+      <section className="py-16 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent"></div>
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Subscribe to our newsletter to get the latest updates on events, workshops, and opportunities.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <div className="reveal">
+            <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
+            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Subscribe to our newsletter to get the latest updates on events, workshops, and opportunities.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto reveal" style={{ animationDelay: '0.2s' }}>
             <input
               type="email"
               placeholder="Enter your email"
               className="flex-1 px-4 py-3 border border-muted-foreground/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
             />
-            <button className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors">
+            <button className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
               Subscribe
             </button>
           </div>
