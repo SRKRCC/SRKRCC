@@ -19,7 +19,7 @@ export default function Navbar() {
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
     return (
-        <header className="bg-white dark:bg-zinc-900 shadow-md transition-colors">
+        <header className="sticky top-0 z-50 bg-white dark:bg-zinc-900 shadow-md transition-colors">
             <div className="container mx-auto flex h-16 items-center justify-between px-4">
                 <Link to="/" className="flex items-center gap-2">
                     <img src="/logo.png" alt="Logo" className="h-10 w-auto" />
