@@ -1,19 +1,22 @@
-import Footer from './Components/Footer';
-import Navbar from './Components/Navbar';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Alumni from './pages/Alumni';
+
+import { Routes, Route } from 'react-router-dom'
+import Footer from './Components/Footer'
+import Navbar from './Components/Navbar'
+import HomePage from './Pages/Home'
+import Hackoverflow from './User/Events/HackoverFlow/Hackoverflow';
 
 const App = () => {
   return (
-    <>
-      <Navbar />
-      <Routes>
-        <Route path="/alumni" element={<Alumni />} />
-        {/* Add other routes here as needed */}
-      </Routes>
-      <Footer />
-    </>
-  );
-};
+    <div>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/hackoverflow" element={<Hackoverflow />} />
+        </Routes>
+        <Footer />
+    </div>
+  )
+}
+
 
 export default App;
