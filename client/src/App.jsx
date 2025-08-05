@@ -2,20 +2,20 @@ import { Routes, Route } from 'react-router-dom'
 import Footer from './Components/Footer'
 import Navbar from './Components/Navbar'
 import HomePage from './Pages/Home'
+import Hackoverflow from './User/Events/HackoverFlow/Hackoverflow';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-1">
+    <div>
+        <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          {/* Add other routes here as needed */}
+          <Route path="/" element={<Hackoverflow />} />
         </Routes>
-      </main>
-      <Footer />
+        <Footer />
     </div>
   )
 }
 
-export default App
+export default App;

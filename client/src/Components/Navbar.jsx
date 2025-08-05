@@ -17,14 +17,23 @@ export default function Navbar() {
     ];
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+    const theme = localStorage.getItem("theme") || "light";
 
     return (
-        <header className="sticky top-0 z-50 bg-white dark:bg-zinc-900 shadow-md transition-colors">
+        <header className="bg-white dark:bg-zinc-900 shadow-md transition-colors sticky top-0 z-10">
             <div className="container mx-auto flex h-16 items-center justify-between px-4">
                 <Link to="/" className="flex items-center gap-2">
-                    <img src="/logo.png" alt="Logo" className="h-10 w-auto" />
+                    <img
+                        src={
+                            theme === "dark"
+                                ? "/clublogodark.png"
+                                : "/clublogolight.png"
+                        }
+                        alt="Logo"
+                        className="h-14 w-auto"
+                    />
                     <span className="font-bold text-primary dark:text-white hidden md:inline-block">
-                        SRKR <span className="text-accent">&lt;CODING CLUB&gt;</span>
+                        <span className="text-primary">SRKR </span><span className="text-accent">&lt;CODING CLUB&gt;</span>
                     </span>
                 </Link>
 
@@ -41,10 +50,14 @@ export default function Navbar() {
                     <ThemeToggle />
                     <JoinUs />
                 </nav>
-
-                <button onClick={toggleMenu} className="md:hidden text-accent">
-                    {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                </button>
+                
+                {/* Mobile-only buttons */}
+                <div className="flex items-center gap-2 md:hidden">
+                    <ThemeToggle />
+                    <button onClick={toggleMenu} className="text-accent">
+                        {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                    </button>
+                </div>
             </div>
 
             <div
@@ -66,6 +79,5 @@ export default function Navbar() {
                 </nav>
             </div>
         </header>
-
     );
 }
