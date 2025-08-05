@@ -5,8 +5,16 @@ import { Button } from '../../../Components/ui/button'
 import { Link } from "react-router-dom";
 import PastHackothons from './PastHackothons';
 import FAQs from './FAQs';
+import { useEffect } from 'react';
+import ScrollToTopButton from '../../../Components/ScrollToTop';
 
 const Hackoverflow = () => {
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }, []); 
     return (
         <div>
             {/* Hero Section */}
@@ -42,9 +50,9 @@ const Hackoverflow = () => {
                                 </Button>
                             </div>
                         </div>
-                        <div className="w-full max-w-2xl flex justify-center items-center bg-white p-6 rounded-lg shadow-xl">
+                        <div className="w-full max-w-2xl flex justify-center items-center bg-white rounded-lg shadow-xl">
                             <img
-                                src="/placeholder.svg?height=400&width=600"
+                                src="../../../../public/demo/Hackoverflow/cover.jpg"
                                 alt="HackOverflow"
                                 width={600}
                                 height={380}
@@ -146,7 +154,7 @@ const Hackoverflow = () => {
                                 <p className="text-muted-foreground">
                                     Develop solutions that address healthcare challenges, improve patient care, or promote wellness and
                                     healthy living.
-                                </p>
+                                </p>    
                             </CardContent>
                         </Card>
 
@@ -225,7 +233,7 @@ const Hackoverflow = () => {
             {/* FAQs Section */}
             <FAQs />
 
-
+            <ScrollToTopButton />
         </div>
     )
 }

@@ -9,6 +9,7 @@ import {
   Instagram,
 } from "lucide-react"
 
+
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
@@ -20,7 +21,7 @@ export default function Footer() {
           {/* Logo & Contact */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <img src="/logo.png" alt="SCC logo" className="h-10 w-auto" />
+              <img src="../../public/clublogodark.png" alt="SCC logo" className="h-10 w-auto" />
               <span className="font-bold text-primary">
                 SRKR <span className="text-accent">&lt;CODING CLUB&gt;</span>
               </span>
@@ -55,7 +56,7 @@ export default function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-muted text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-muted text-muted-foreground transition-colors hover:bg-accent hover:text-primary-foreground"
                 >
                   <Icon className="h-4 w-4" />
                   <span className="sr-only">{Icon.name}</span>
@@ -104,7 +105,7 @@ export default function Footer() {
 function FooterColumn({ title, links }) {
   return (
     <div className="space-y-4">
-      <h3 className="text-lg text-black font-bold">{title}</h3>
+      <h3 className="text-lg font-bold">{title}</h3>
       <ul className="space-y-2 text-sm">
         {links.map(([href, label], idx) => (
           <li key={idx}>

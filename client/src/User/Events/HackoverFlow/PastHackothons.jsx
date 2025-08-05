@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { CalendarCheck, FileText, Trophy, Users, Image, Quote, Youtube, Link, Award } from 'lucide-react';
+import { Card, CardContent } from '../../../Components/ui/card';
 
 // Sample data for different event editions. This data would typically be fetched from an API.
 const eventData = {
@@ -24,18 +25,12 @@ const eventData = {
             },
         },
         gallery: [
-            { id: 1, url: 'https://placehold.co/800x600/60a5fa/fff?text=Photo+1', alt: 'Participants brainstorming' },
-            { id: 2, url: 'https://placehold.co/800x600/34d399/fff?text=Photo+2', alt: 'Judges evaluating projects' },
-            { id: 3, url: 'https://placehold.co/800x600/f87171/fff?text=Photo+3', alt: 'Award ceremony' },
-            { id: 11, url: 'https://placehold.co/800x600/60a5fa/fff?text=Photo+1', alt: 'Participants brainstorming' },
-            { id: 21, url: 'https://placehold.co/800x600/34d399/fff?text=Photo+2', alt: 'Judges evaluating projects' },
-            { id: 31, url: 'https://placehold.co/800x600/f87171/fff?text=Photo+3', alt: 'Award ceremony' },
-            { id: 1, url: 'https://placehold.co/800x600/60a5fa/fff?text=Photo+1', alt: 'Participants brainstorming' },
-            { id: 12, url: 'https://placehold.co/800x600/34d399/fff?text=Photo+2', alt: 'Judges evaluating projects' },
-            { id: 13, url: 'https://placehold.co/800x600/f87171/fff?text=Photo+3', alt: 'Award ceremony' },
-            { id: 221, url: 'https://placehold.co/800x600/60a5fa/fff?text=Photo+1', alt: 'Participants brainstorming' },
-            { id: 22, url: 'https://placehold.co/800x600/34d399/fff?text=Photo+2', alt: 'Judges evaluating projects' },
-            { id: 33, url: 'https://placehold.co/800x600/f87171/fff?text=Photo+3', alt: 'Award ceremony' },
+            { id: 1, url: '../../../../public/demo/Hackoverflow/photo2.jpg', alt: 'Participants brainstorming' },
+            { id: 2, url: '../../../../public/demo/Hackoverflow/photo7.jpg', alt: 'Judges evaluating projects' },
+            { id: 3, url: '../../../../public/demo/Hackoverflow/photo3.jpg', alt: 'Award ceremony' },
+            { id: 4, url: '../../../../public/demo/Hackoverflow/photo4.jpg', alt: 'Networking session' },
+            { id: 5, url: '../../../../public/demo/Hackoverflow/photo5.jpg', alt: 'Team presentations' },
+            { id: 6, url: '../../../../public/demo/Hackoverflow/photo6.jpg', alt: 'Hackathon venue' },
         ],
         testimonials: [
             { author: 'Jane Doe', quote: 'An incredible experience! The mentors were so helpful, and the energy was fantastic. We learned so much in just one weekend.' },
@@ -105,15 +100,26 @@ const eventData = {
             { author: 'Darth Sidious', quote: 'A very welcoming environment for beginners. The judging was fair, and the feedback was constructive. A great starting point for aspiring hackers.' },
         ],
         feedback: null,
-        videoUrl: 'https://www.youtube.com/embed/p1J5rC7R7q0', // Another placeholder video link
+        videoUrl: 'https://www.youtube.com/embed/p1J5rC7R7q0',
         sponsors: ['Community Partners', 'Nexus Technologies'],
     },
 };
 
 export default function PastHackothons() {
     const [selectedEvent, setSelectedEvent] = useState('2K24');
+    const mainContentRef = useRef(null);
     const currentEvent = eventData[selectedEvent];
-    const eventYears = Object.keys(eventData).sort((a, b) => b.localeCompare(a)); // Sort years descending
+    const eventYears = Object.keys(eventData).sort((a, b) => b.localeCompare(a));
+
+    const handleEventSelect = (year) => {
+        if (mainContentRef.current) {
+            mainContentRef.current.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
+        }
+        setSelectedEvent(year);
+    };
 
     return (
         <div className="min-h-screen bg-background text-foreground">
@@ -132,13 +138,12 @@ export default function PastHackothons() {
             <div className="container mx-auto px-4">
                 <div className="flex flex-col lg:flex-row gap-2">
                     {/* Sidebar for navigation */}
-                    <aside className="lg:w-64 flex-shrink-0">
-                        {/* On small/medium screens, the nav becomes a horizontally scrollable row */}
+                    <aside className="lg:w-40 flex-shrink-0">
                         <nav className="flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-x-hidden p-4 bg-card rounded-lg lg:sticky lg:top-4">
                             {eventYears.map(year => (
                                 <button
                                     key={year}
-                                    onClick={() => setSelectedEvent(year)}
+                                    onClick={() => handleEventSelect(year)}
                                     className={`flex items-center justify-center lg:justify-start w-full min-w-[80px] lg:min-w-0 px-4 py-3 rounded-md font-medium transition-colors whitespace-nowrap ${selectedEvent === year
                                         ? 'bg-accent text-white'
                                         : 'bg-muted text-muted-foreground hover:bg-muted/80'
@@ -153,7 +158,8 @@ export default function PastHackothons() {
 
                     {/* Main content container with fixed height and scrolling */}
                     <main className="flex-1 min-w-0">
-                        <div className="bg-muted/50 rounded-lg border p-6 h-[calc(100vh-200px)] overflow-y-auto">
+                        {/* Attach the ref to the main content div */}
+                        <div ref={mainContentRef} className="bg-muted/50 rounded-lg border p-6 h-[calc(100vh-200px)] overflow-y-auto">
                             <header className="mb-8">
                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                                     {/* Left side - Description */}
@@ -168,7 +174,7 @@ export default function PastHackothons() {
                                     {/* Right side - Image */}
                                     <div className="aspect-video w-full rounded-lg overflow-hidden border bg-muted">
                                         <img
-                                            src={`https://placehold.co/800x450/3b82f6/fff?text=${currentEvent.title.replace(/\s+/g, '+')}`}
+                                            src="../../../../public/demo/Hackoverflow/photo1.jpg"
                                             alt={`${currentEvent.title} event image`}
                                             className="w-full h-full object-cover"
                                         />
@@ -189,27 +195,29 @@ export default function PastHackothons() {
                                         const placeIconColor = index === 0 ? 'text-amber-500' : index === 1 ? 'text-gray-500' : 'text-orange-500';
 
                                         return (
-                                            <div key={place} className="p-6 rounded-lg border bg-white hover:shadow-md transition-shadow">
-                                                <div className="flex items-center mb-3">
-                                                    <Award className={`w-6 h-6 mr-2 ${placeIconColor}`} />
-                                                    <h4 className="text-xl font-bold">{placeText}</h4>
-                                                </div>
-                                                <p className="text-muted-foreground mb-2">
-                                                    <span className="font-semibold text-foreground">Team:</span> {winner.teamName}
-                                                </p>
-                                                <p className="text-muted-foreground mb-4">
-                                                    <span className="font-semibold text-foreground">Members:</span> {winner.members.join(', ')}
-                                                </p>
-                                                <a
-                                                    href={winner.projectLink}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="inline-flex items-center text-primary hover:text-primary/80 font-semibold transition-colors"
-                                                >
-                                                    <Link className="mr-1 w-4 h-4" />
-                                                    Project Link
-                                                </a>
-                                            </div>
+                                            <Card>
+                                                <CardContent key={place} className="p-6">
+                                                    <div className="flex items-center mb-3">
+                                                        <Award className={`w-6 h-6 mr-2 ${placeIconColor}`} />
+                                                        <h4 className="text-xl font-bold">{placeText}</h4>
+                                                    </div>
+                                                    <p className="text-muted-foreground mb-2">
+                                                        <span className="font-semibold text-foreground">Team:</span> {winner.teamName}
+                                                    </p>
+                                                    <p className="text-muted-foreground mb-4">
+                                                        <span className="font-semibold text-foreground">Members:</span> {winner.members.join(', ')}
+                                                    </p>
+                                                    <a
+                                                        href={winner.projectLink}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="inline-flex items-center text-primary hover:text-primary/80 font-semibold transition-colors"
+                                                    >
+                                                        <Link className="mr-1 w-4 h-4" />
+                                                        Project Link
+                                                    </a>
+                                                </CardContent>
+                                            </Card>
                                         );
                                     })}
                                 </div>
@@ -377,7 +385,6 @@ export default function PastHackothons() {
                                     }
                                 `}</style>
                             </section>
-
                         </div>
                     </main>
                 </div>

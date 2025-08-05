@@ -20,7 +20,7 @@ export default function Navbar() {
     const theme = localStorage.getItem("theme") || "light";
 
     return (
-        <header className="bg-white dark:bg-zinc-900 shadow-md transition-colors sticky top-0 z-10">
+        <header className="bg-white dark:bg-zinc-900 shadow-md transition-colors sticky top-0 z-50">
             <div className="container mx-auto flex h-16 items-center justify-between px-4">
                 <Link to="/" className="flex items-center gap-2">
                     <img
