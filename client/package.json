@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    
+    "utils": "^0.3.1",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-slot": "^1.2.3",
     "axios": "^1.10.0",
