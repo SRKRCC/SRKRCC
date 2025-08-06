@@ -1,5 +1,4 @@
 import React from "react"
-
 import { useEffect, useState } from "react"
 import {
   Download,
@@ -14,6 +13,7 @@ import {
   ChevronRight,
   X,
 } from "lucide-react"
+import { Card, CardContent } from "../Components/ui/card"
 
 const Alumni = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -168,7 +168,7 @@ const Alumni = () => {
             onClick={closeFullScreen}
             className="absolute top-6 right-6 z-60 p-3 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm transition-all duration-300"
           >
-            <X className="w-8 h-8 text-white" />
+            <X className="w-6 h-6 text-white" />
           </button>
 
           {/* Download Button */}
@@ -176,33 +176,35 @@ const Alumni = () => {
             onClick={downloadImage}
             className="absolute top-6 right-20 z-60 p-3 bg-orange-500/80 hover:bg-orange-600/90 rounded-full backdrop-blur-sm transition-all duration-300"
           >
-            <Download className="w-8 h-8 text-white" />
+            <Download className="w-6 h-6 text-white" />
           </button>
 
           {/* Previous Button */}
           <button
             onClick={() => navigateFullScreen("prev")}
-            className="absolute left-6 top-1/2 transform -translate-y-1/2 z-60 p-4 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm transition-all duration-300"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 z-60 p-3 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm transition-all duration-300"
           >
-            <ChevronLeft className="w-10 h-10 text-white" />
+            <ChevronLeft className="w-8 h-8 text-white" />
           </button>
 
           {/* Next Button */}
           <button
             onClick={() => navigateFullScreen("next")}
-            className="absolute right-6 top-1/2 transform -translate-y-1/2 z-60 p-4 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm transition-all duration-300"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 z-60 p-3 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm transition-all duration-300"
           >
-            <ChevronRight className="w-10 h-10 text-white" />
+            <ChevronRight className="w-8 h-8 text-white" />
           </button>
 
-          {/* Main Image Container with Gallery Styling */}
-          <div className="relative max-w-6xl max-h-[90vh] mx-auto px-20">
-            <div className="relative overflow-hidden rounded-md shadow-2xl">
-              <img
-                src={alumniData[currentImageIndex].image || "/placeholder.svg"}
-                alt={`Alumni Batch ${alumniData[currentImageIndex].year}`}
-                className="w-full h-full object-contain"
-              />
+                     {/* Main Image Container with Gallery Styling */}
+           <div className="flex items-center justify-center w-full h-full">
+  <div className="relative w-[60vw] h-[70vh] overflow-hidden rounded-md shadow-2xl flex items-center justify-center bg-white">
+    <img
+      src={alumniData[currentImageIndex].image || "/placeholder.svg"}
+      alt={`Alumni Batch ${alumniData[currentImageIndex].year}`}
+      className="w-full h-full object-cover"
+    />
+
+
 
               {/* Year Badge */}
               <div className="absolute top-6 left-6 px-4 py-2 bg-gradient-to-r from-orange-500/90 to-orange-600/90 backdrop-blur-sm rounded-md text-white font-bold text-lg shadow-xl">
@@ -219,15 +221,7 @@ const Alumni = () => {
                 </div>
               </div>
 
-              {/* Download Icon */}
-              <div className="absolute bottom-6 right-6">
-                <button
-                  onClick={downloadImage}
-                  className="bg-gradient-to-br from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white p-4 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-300"
-                >
-                  <Download className="w-5 h-5" />
-                </button>
-              </div>
+             
             </div>
 
             {/* Image Counter */}
@@ -256,11 +250,11 @@ const Alumni = () => {
       <section className="bg-muted/50 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">
+            <h1 className="mb-6 gradient-text text-4xl font-bold tracking-tight md:text-5xl">
               Our Alumni
             </h1>
             <p className="mb-8 text-lg text-muted-foreground">
-              Our alumni are the pride of <span className="font-bold text-accent">SRKR CODING CLUB</span>. They
+              Our alumni are the pride of  <span className="text-primary">SRKR </span><span className="text-accent font-semibold">&lt;CODING CLUB&gt;</span>. They
                   are the brilliant minds who have graduated from our college and are now making significant
                   contributions to the tech industry worldwide. From startup founders to senior engineers at top tech
                   companies, our alumni continue to inspire and mentor the next generation of coders.
@@ -330,7 +324,7 @@ const Alumni = () => {
                             e.stopPropagation()
                             downloadImage()
                           }}
-                          className="bg-gradient-to-br from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-accent-foreground p-4 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-300"
+                          className="bg-gradient-to-br w-13 h-13 from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-accent-foreground p-4 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-300"
                         >
                           <Download className="w-5 h-5" />
                         </button>
@@ -373,75 +367,83 @@ const Alumni = () => {
       </section>
 
       {/* Success Stories Section */}
-      <section className="bg-muted/50 py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">Success Stories</h2>
-            <p className="text-muted-foreground text-xl">Inspiring journeys of our alumni who are making a difference</p>
-          </div>
+   
+      <section className="bg-muted/50 py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <h2 className="mb-12 text-center text-3xl font-bold tracking-tight md:text-4xl">Success Stories</h2>
 
-          <div className={`grid md:grid-cols-3 gap-10 stagger-reveal ${isVisible ? "active" : ""}`}>
-            {successStories.map((story, index) => (
-              <div
-                key={story.name}
-                className="relative group/item cursor-pointer"
-              >
-                <div className="bg-gradient-to-br from-card/80 to-card/60 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-border transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 hover:shadow-3xl card-hover">
-                  <div className="relative z-10">
-                    <div className="text-center mb-8">
-                      <div className="relative inline-block">
-                        <img
-                          src={story.image || "/placeholder.svg"}
-                          alt={story.name}
-                          className="w-28 h-28 rounded-full object-cover mx-auto shadow-lg transition-transform duration-700 group-hover/item:scale-110"
-                        />
-                      </div>
-                      <h3 className="text-2xl font-bold text-card-foreground mt-4">{story.name}</h3>
-                      <p className="text-accent font-bold text-lg">{story.role}</p>
-                      <div className="flex items-center justify-center gap-4 mt-3 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-1">
-                          <Calendar className="w-4 h-4" />
-                          <span>Graduated {story.year}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Briefcase className="w-4 h-4" />
-                          <span>{story.company}</span>
-                        </div>
-                      </div>
-                      <div className="flex items-center justify-center gap-1 mt-1 text-sm text-muted-foreground">
-                        <MapPin className="w-4 h-4" />
-                        <span>{story.location}</span>
-                      </div>
-                    </div>
-
-                    <div className="space-y-6">
-                      <p className="text-card-foreground/80 leading-relaxed text-center">{story.story}</p>
-
-                      {/* <div className="bg-gradient-to-r from-orange-100 to-amber-100 rounded-2xl p-6 border border-orange-200/50 shadow-inner">
-                        
-                      </div> */}
-                    </div>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <Card>
+              <CardContent className="p-6">
+                
+                <p className="mb-4 text-muted-foreground">
+                  HackOverflow was an incredible experience! The mentorship, resources, and collaborative environment
+                  helped our team build something we're truly proud of. Can't wait for next year!
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 overflow-hidden rounded-full bg-muted">
+                    <img
+                      src="/placeholder.svg?height=40&width=40"
+                      alt="Testimonial"
+                      className="h-full w-full object-cover"
+                    />
                   </div>
-
-                  {/* Shine Effect */}
-                  <div className="absolute inset-0 opacity-0 group-hover/item:opacity-100 transition-opacity duration-700 rounded-3xl overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover/item:translate-x-full transition-transform duration-1000"></div>
-                  </div>
-
-                 
-                  
-
-                  {/* Animated Particles Effect */}
-                  <div className="absolute inset-0 opacity-0 group-hover/item:opacity-100 transition-opacity duration-1000">
-                    <div className="absolute top-4 left-4 w-2 h-2 bg-accent rounded-full animate-ping" style={{ animationDelay: '0s' }} />
-                    <div className="absolute top-8 right-8 w-1 h-1 bg-accent/80 rounded-full animate-ping" style={{ animationDelay: '0.5s' }} />
-                    <div className="absolute bottom-12 left-12 w-1.5 h-1.5 bg-accent/60 rounded-full animate-ping" style={{ animationDelay: '1s' }} />
-                    <div className="absolute bottom-8 right-12 w-1 h-1 bg-accent/40 rounded-full animate-ping" style={{ animationDelay: '1.5s' }} />
+                  <div>
+                    <p className="font-medium">Rahul Sharma</p>
+                    <p className="text-sm text-muted-foreground">1st Place Winner, HackOverflow 2023</p>
                   </div>
                 </div>
-              </div>
-            ))}
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                
+                <p className="mb-4 text-muted-foreground">
+                  As a first-time hackathon participant, I was nervous, but the organizers created such a welcoming
+                  environment. I learned so much and made great connections!
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 overflow-hidden rounded-full bg-muted">
+                    <img
+                      src="/placeholder.svg?height=40&width=40"
+                      alt="Testimonial"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-medium">Priya Patel</p>
+                    <p className="text-sm text-muted-foreground">Participant, HackOverflow 2023</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+              
+                <p className="mb-4 text-muted-foreground">
+                  The quality of projects at HackOverflow was outstanding. The event was well-organized, and the
+                  workshops provided valuable insights for all participants.
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 overflow-hidden rounded-full bg-muted">
+                    <img
+                      src="/placeholder.svg?height=40&width=40"
+                      alt="Testimonial"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-medium">Dr. Suresh Kumar</p>
+                    <p className="text-sm text-muted-foreground">Judge, HackOverflow 2023</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
+
+          
         </div>
       </section>
     </div>
