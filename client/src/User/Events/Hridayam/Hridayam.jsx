@@ -44,7 +44,7 @@ const Hridayam = () => {
                         </div>
                         <div className="w-full max-w-2xl flex justify-center items-center bg-white rounded-lg shadow-xl">
                             <img
-                                src="../../../../public/demo/Hridayam/cover.jpg"
+                                src="/demo/Hridayam/cover.jpg"
                                 alt="Hridayam Blood Donation"
                                 width={600}
                                 height={380}

@@ -52,7 +52,7 @@ const Hackoverflow = () => {
                         </div>
                         <div className="w-full max-w-2xl flex justify-center items-center bg-white rounded-lg shadow-xl">
                             <img
-                                src="../../../../public/demo/Hackoverflow/cover.jpg"
+                                src="/demo/Hackoverflow/cover.jpg"
                                 alt="HackOverflow"
                                 width={600}
                                 height={380}

@@ -21,7 +21,7 @@ export default function Footer() {
           {/* Logo & Contact */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <img src="../../public/clublogodark.png" alt="SCC logo" className="h-10 w-auto" />
+              <img src="clublogodark.png" alt="SCC logo" className="h-10 w-auto" />
               <span className="font-bold text-primary">
                 SRKR <span className="text-accent">&lt;CODING CLUB&gt;</span>
               </span>

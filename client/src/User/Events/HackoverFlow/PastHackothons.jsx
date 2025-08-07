@@ -25,12 +25,12 @@ const eventData = {
             },
         },
         gallery: [
-            { id: 1, url: '../../../../public/demo/Hackoverflow/photo2.jpg', alt: 'Participants brainstorming' },
-            { id: 2, url: '../../../../public/demo/Hackoverflow/photo7.jpg', alt: 'Judges evaluating projects' },
-            { id: 3, url: '../../../../public/demo/Hackoverflow/photo3.jpg', alt: 'Award ceremony' },
-            { id: 4, url: '../../../../public/demo/Hackoverflow/photo4.jpg', alt: 'Networking session' },
-            { id: 5, url: '../../../../public/demo/Hackoverflow/photo5.jpg', alt: 'Team presentations' },
-            { id: 6, url: '../../../../public/demo/Hackoverflow/photo6.jpg', alt: 'Hackathon venue' },
+            { id: 1, url: '/demo/Hackoverflow/photo2.jpg', alt: 'Participants brainstorming' },
+            { id: 2, url: '/demo/Hackoverflow/photo7.jpg', alt: 'Judges evaluating projects' },
+            { id: 3, url: '/demo/Hackoverflow/photo3.jpg', alt: 'Award ceremony' },
+            { id: 4, url: '/demo/Hackoverflow/photo4.jpg', alt: 'Networking session' },
+            { id: 5, url: '/demo/Hackoverflow/photo5.jpg', alt: 'Team presentations' },
+            { id: 6, url: '/demo/Hackoverflow/photo6.jpg', alt: 'Hackathon venue' },
         ],
         testimonials: [
             { author: 'Jane Doe', quote: 'An incredible experience! The mentors were so helpful, and the energy was fantastic. We learned so much in just one weekend.' },
@@ -174,7 +174,7 @@ export default function PastHackothons() {
                                     {/* Right side - Image */}
                                     <div className="aspect-video w-full rounded-lg overflow-hidden border bg-muted">
                                         <img
-                                            src="../../../../public/demo/Hackoverflow/photo1.jpg"
+                                            src="/demo/Hackoverflow/photo1.jpg"
                                             alt={`${currentEvent.title} event image`}
                                             className="w-full h-full object-cover"
                                         />

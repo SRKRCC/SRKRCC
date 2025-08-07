@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import PastIconCoderz from './PastIconcoderz';
 import FAQs from './FAQs';
 import ScrollToTopButton from '../../../Components/ScrollToTop';
+import { useEffect } from 'react';
 
 const IconCoderz = () => {
         useEffect(() => {
@@ -51,7 +52,7 @@ const IconCoderz = () => {
                         </div>
                         <div className="w-full max-w-2xl flex justify-center items-center bg-white rounded-lg shadow-xl">
                             <img
-                                src="../../../../public/demo/Iconcoderz/cover.jpg"
+                                src="/demo/Iconcoderz/cover.jpg"
                                 alt="IconCoderz"
                                 width={600}
                                 height={380}

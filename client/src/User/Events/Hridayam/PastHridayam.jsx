@@ -5,13 +5,13 @@ import { Button } from '../../../Components/ui/button';
 
 // Sample data for the gallery images from the Hridayam component
 const hridayamGalleryImages = [
-    { id: 1, url: '../../../../public/demo/Hridayam/photo1.jpg', alt: 'Event moment 1' },
-    { id: 2, url: '../../../../public/demo/Hridayam/photo2.jpg', alt: 'Event moment 2' },
-    { id: 3, url: '../../../../public/demo/Hridayam/photo3.jpg', alt: 'Event moment 3' },
-    { id: 4, url: '../../../../public/demo/Hridayam/photo4.jpg', alt: 'Event moment 4' },
-    { id: 5, url: '../../../../public/demo/Hridayam/photo5.jpg', alt: 'Event moment 5' },
-    { id: 6, url: '../../../../public/demo/Hridayam/photo6.jpg', alt: 'Event moment 6' },
-    { id: 7, url: '../../../../public/demo/Hridayam/photo7.jpg', alt: 'Event moment 7' },
+    { id: 1, url: '/demo/Hridayam/photo1.jpg', alt: 'Event moment 1' },
+    { id: 2, url: '/demo/Hridayam/photo2.jpg', alt: 'Event moment 2' },
+    { id: 3, url: '/demo/Hridayam/photo3.jpg', alt: 'Event moment 3' },
+    { id: 4, url: '/demo/Hridayam/photo4.jpg', alt: 'Event moment 4' },
+    { id: 5, url: '/demo/Hridayam/photo5.jpg', alt: 'Event moment 5' },
+    { id: 6, url: '/demo/Hridayam/photo6.jpg', alt: 'Event moment 6' },
+    { id: 7, url: '/demo/Hridayam/photo7.jpg', alt: 'Event moment 7' },
 ];
 
 // Sample data for different event editions, similar to PastHackothons but for Hridayam.

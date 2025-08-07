@@ -30,13 +30,13 @@ const eventData = {
             },
         },
         gallery: [
-            { id: 1, url: '../../../../public/demo/Iconcoderz/photo1.jpg', alt: 'Participants coding' },
-            { id: 2, url: '../../../../public/demo/Iconcoderz/photo2.jpg', alt: 'Awards ceremony' },
-            { id: 3, url: '../../../../public/demo/Iconcoderz/photo3.jpg', alt: 'Judges' },
-            { id: 4, url: '../../../../public/demo/Iconcoderz/photo4.jpg', alt: 'Team photo' },
-            { id: 5, url: '../../../../public/demo/Iconcoderz/photo5.jpg', alt: 'Coding in action' },
-            { id: 6, url: '../../../../public/demo/Iconcoderz/photo7.jpg', alt: 'Event venue' },
-            { id: 7, url: '../../../../public/demo/Iconcoderz/photo8.jpg', alt: 'Participants networking' },
+            { id: 1, url: '/demo/Iconcoderz/photo1.jpg', alt: 'Participants coding' },
+            { id: 2, url: '/demo/Iconcoderz/photo2.jpg', alt: 'Awards ceremony' },
+            { id: 3, url: '/demo/Iconcoderz/photo3.jpg', alt: 'Judges' },
+            { id: 4, url: '/demo/Iconcoderz/photo4.jpg', alt: 'Team photo' },
+            { id: 5, url: '/demo/Iconcoderz/photo5.jpg', alt: 'Coding in action' },
+            { id: 6, url: '/demo/Iconcoderz/photo6.jpg', alt: 'Event venue' },
+            { id: 7, url: '/demo/Iconcoderz/photo7.jpg', alt: 'Participants networking' },
         ],
         testimonials: [
             { author: 'Alice Johnson', quote: 'The problems were incredibly well-designed and tested my limits. Winning was a huge honor!' },
@@ -151,7 +151,7 @@ export default function PastIconCoderz() {
                                     {/* Right side - Image */}
                                     <div className="aspect-video w-full rounded-lg overflow-hidden border bg-muted">
                                         <img
-                                            src="../../../../public/demo/Iconcoderz/photo6.jpg"
+                                            src="/demo/Iconcoderz/photo6.jpg"
                                             alt={`${currentEvent.title} event image`}
                                             className="w-full h-full object-cover"
                                         />
