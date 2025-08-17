@@ -88,23 +88,7 @@ const AffiliatesPage = () => {
     window.URL.revokeObjectURL(url);
   };
 
-  // Scroll observer for reveal animations
-  useEffect(() => {
-    const reveals = document.querySelectorAll('.reveal, .stagger-reveal');
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    reveals.forEach((el) => observer.observe(el));
-    return () =>
-      reveals.forEach((el) => observer.unobserve(el));
-  }, []);
+ 
 
   // Data check
   if (!Object.keys(affiliateStats).length) {
@@ -118,26 +102,27 @@ const AffiliatesPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-16 bg-muted/50">
+    <div className="min-h-screen bg-muted/40">
+      <div className="px-4 sm:px-6 md:px-8 py-20 sm:py-12 md:py-16">
         {/* Header */}
-        <header className="text-center mb-6 sm:mb-8 reveal">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-accent">
+        <header className="text-center my-8 sm:mb-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 gradient-text">
             Affiliates
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Join our growing community of tech enthusiasts and unlock exclusive opportunities for growth and learning
-          </p>
+            Affiliates are an essential part of SRKRCodingClub’s growth and success, contributing to events, ideas, and community engagement. Here, you can explore year-wise statistics, download affiliate data, and discover the benefits that come with being part of our dynamic and collaborative network.          </p>
         </header>
       </div>
 
-      <div className="px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
+      <div className="px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-20 bg-card/40" >
         {/* Who Are Affiliates Section */}
-        <section className="bg-card rounded-lg mt-6 sm:mt-8 mb-6 sm:mb-8 reveal">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-4 sm:mb-6 flex items-center gap-3 justify-center">
-            <Users className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
+        <section className="rounded-lg mt-6 sm:mt-8 mb-6 sm:mb-8 ">
+          <h2 className="text-xl sm:text-2xl md:text-5xl font-bold gradient-text mb-4 sm:mb-6 flex items-center gap-3 justify-center">
+            {/* <Users className="w-6 h-6 sm:w-8 sm:h-8 text-black" /> */}
             Who Are Affiliates?
+            
           </h2>
+          
           <div className="text-muted-foreground text-sm sm:text-base md:text-lg space-y-4 px-4 sm:px-6">
             <p>
               SCC Affiliates are passionate students who have demonstrated exceptional interest and commitment to computer science and technology.
@@ -151,15 +136,15 @@ const AffiliatesPage = () => {
         </section>
       </div>
 
-      <div className="px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-8 sm:py-12 md:py-16 bg-muted/50">
+      <div className="px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 sm:py-12 md:py-24 bg-muted/50">
         {/* Statistics Cards */}
         <section className="mb-6 sm:mb-8">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-6 sm:mb-8 text-center reveal">
+          <h2 className="text-xl sm:text-2xl md:text-5xl font-bold text-foreground mb-6 sm:mb-12 text-center ">
             Affiliate Statistics
           </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 stagger-reveal">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {Object.entries(affiliateStats).map(([year, count]) => (
-              <div key={year} className="bg-card rounded-lg p-4 sm:p-6 text-center border border-border card-hover">
+              <div key={year} className="bg-card/40 rounded-lg p-4 sm:p-6 text-center border border-border card-hover">
                 <div className="text-2xl sm:text-3xl font-bold text-accent mb-2">{count}</div>
                 <div className="text-xs sm:text-sm font-semibold text-muted-foreground">{year} Students</div>
               </div>
@@ -168,19 +153,19 @@ const AffiliatesPage = () => {
         </section>
       </div>
 
-      <div className="px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-8 sm:py-12 md:py-16">
+      <div className="px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-8 sm:py-12 md:py-16 ">
         {/* Download Section */}
-        <section className="bg-card rounded-lg mt-6 sm:mt-8 mb-6 sm:mb-8 reveal">
+        <section className=" rounded-lg mt-6 sm:mt-8 mb-6 sm:mb-8 ">
           <div className="text-center mb-4 sm:mb-6">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-3 flex justify-center items-center gap-3">
-              <Download className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
+            <h2 className="text-xl sm:text-2xl md:text-5xl font-bold text-foreground mb-3 flex justify-center items-center gap-3">
+              <Download className="w-7 h-7 sm:w-8 sm:h-8 text-accent" />
               Year-wise Data Downloads
             </h2>
             <p className="text-muted-foreground text-sm sm:text-base">
               Download comprehensive Excel sheets containing affiliate data organized by year.
             </p>
           </div>
-          <div className="flex flex-col gap-4 sm:gap-6 max-w-3xl mx-auto stagger-reveal">
+          <div className="flex flex-col gap-4 sm:gap-6 max-w-3xl mx-auto ">
             {downloadYears.map((actualYear) => (
               <div
                 key={actualYear}
@@ -206,12 +191,12 @@ const AffiliatesPage = () => {
 
       <div className="px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-8 sm:py-12 md:py-16 bg-muted/50">
         {/* Benefits Section */}
-        <section className="rounded-lg mt-6 sm:mt-8 reveal">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-6 sm:mb-8 text-center flex items-center justify-center gap-3">
+        <section className="rounded-lg mt-6 sm:mt-8 ">
+          <h2 className="text-xl sm:text-2xl md:text-5xl font-bold text-foreground mb-6 sm:mb-8 text-center flex items-center justify-center gap-3">
             <Gift className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
             What You Get as an SCC Affiliate
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 stagger-reveal">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 ">
             {benefits.map((benefit, index) => (
               <div
                 key={index}
