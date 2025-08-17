@@ -45,6 +45,8 @@ function Counter({ end, duration = 2000 }) {
 }
 
 export default function HomePage() {
+  const [activeTab, setActiveTab] = useState('ongoing');
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -135,9 +137,9 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Users, number: "1500", label: "Members" },
-              { icon: Calendar, number: "50", label: "Events" },
-              { icon: Code, number: "200", label: "Projects" },
+              { icon: Users, number: "300", label: "ABR" },
+              { icon: Users, number: "50", label: "EBR" },
+              { icon: Code, number: "50", label: "Events" },
               { icon: Trophy, number: "30", label: "Awards" },
             ].map((stat, index) => (
               <div key={index} className="bg-background rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-105 border border-primary/20 reveal" style={{ animationDelay: `${index * 0.1}s` }}>
@@ -204,21 +206,56 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 reveal">
             <h2 className="text-4xl font-bold mb-4">
-              Upcoming <span className="from-primary to-accent bg-gradient-to-r text-transparent bg-clip-text">Events</span>
+              Event <span className="from-primary to-accent bg-gradient-to-r text-transparent bg-clip-text">Spotlight</span>
             </h2>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 mb-8">
-            {/* Ongoing Events */}
-            <div>
-              <h3 className="text-2xl font-bold mb-6">Ongoing Events</h3>
-              <div className="space-y-6">
+          {/* Tab Navigation */}
+          <div className="flex justify-center mb-8 reveal">
+            <div className="bg-background rounded-lg p-1 shadow-sm border border-primary/20">
+              <button
+                onClick={() => setActiveTab('ongoing')}
+                className={`px-4 py-3 rounded-md font-medium transition-all duration-300 ${
+                  activeTab === 'ongoing'
+                    ? 'bg-primary text-primary-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Ongoing Events
+              </button>
+              <button
+                onClick={() => setActiveTab('upcoming')}
+                className={`px-4 py-3 rounded-md font-medium transition-all duration-300 ${
+                  activeTab === 'upcoming'
+                    ? 'bg-primary text-primary-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Upcoming Events
+              </button>
+              <button
+                onClick={() => setActiveTab('flagship')}
+                className={`px-4 py-3 rounded-md font-medium transition-all duration-300 ${
+                  activeTab === 'flagship'
+                    ? 'bg-primary text-primary-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Flagship Events
+              </button>
+            </div>
+          </div>
+
+          {/* Tab Content */}
+          <div className="mb-8">
+            {activeTab === 'ongoing' && (
+              <div className="grid lg:grid-cols-2 gap-8">
                 {[
                   {
                     title: "HackOverflow 2024",
                     image: "/placeholder.svg",
                     status: "Ongoing",
-                    statusColor: "bg-green-100 text-green-800",
+                    statusColor: "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400",
                     date: "June 15-17, 2024",
                     description: "Join our flagship hackathon event and showcase your innovative solutions to real-world problems."
                   },
@@ -226,13 +263,13 @@ export default function HomePage() {
                     title: "IconCoderZ Spring Challenge",
                     image: "/placeholder.svg",
                     status: "Ongoing",
-                    statusColor: "bg-green-100 text-green-800",
+                    statusColor: "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400",
                     date: "May 6, 2024",
                     description: "Test your coding skills in our competitive programming contest with challenges for all skill levels."
                   }
                 ].map((event, index) => (
-                  <div key={index} className="bg-background rounded-lg p-6 shadow-sm border border-primary/20">
-                    <img src={event.image} alt={event.title} className="w-full h-96 object-cover mb-4 rounded-lg" />
+                  <div key={index} className="bg-background rounded-lg p-6 shadow-sm border border-primary/20 hover:shadow-md transition-all duration-300 transform hover:scale-105">
+                    <img src={event.image} alt={event.title} className="w-full h-64 object-cover mb-4 rounded-lg" />
                     <div className="flex items-start justify-between mb-3">
                       <h4 className="text-lg font-bold">{event.title}</h4>
                       <span className={`px-2 py-1 rounded-full text-xs font-medium ${event.statusColor}`}>
@@ -250,18 +287,16 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-            </div>
+            )}
 
-            {/* Upcoming Events */}
-            <div>
-              <h3 className="text-2xl font-bold mb-6">Upcoming Events</h3>
-              <div className="space-y-6">
+            {activeTab === 'upcoming' && (
+              <div className="grid lg:grid-cols-2 gap-8">
                 {[
                   {
                     title: "Code BattleGround",
                     image: "/placeholder.svg",
                     status: "Upcoming",
-                    statusColor: "bg-blue-100 text-blue-800",
+                    statusColor: "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400",
                     date: "June 30, 2024",
                     description: "A team-based coding competition where groups compete to solve algorithmic challenges."
                   },
@@ -269,13 +304,13 @@ export default function HomePage() {
                     title: "Summer Coding Bootcamp",
                     image: "/placeholder.svg",
                     status: "Upcoming",
-                    statusColor: "bg-blue-100 text-blue-800",
+                    statusColor: "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400",
                     date: "July 1-15, 2024",
                     description: "Intensive two-week training program covering web development, machine learning, and more."
                   }
                 ].map((event, index) => (
-                  <div key={index} className="bg-background rounded-lg p-6 shadow-sm border border-primary/20">
-                    <img src={event.image} alt={event.title} className="w-full h-96 object-cover mb-4 rounded-lg" />
+                  <div key={index} className="bg-background rounded-lg p-6 shadow-sm border border-primary/20 hover:shadow-md transition-all duration-300 transform hover:scale-105">
+                    <img src={event.image} alt={event.title} className="w-full h-64 object-cover mb-4 rounded-lg" />
                     <div className="flex items-start justify-between mb-3">
                       <h4 className="text-lg font-bold">{event.title}</h4>
                       <span className={`px-2 py-1 rounded-full text-xs font-medium ${event.statusColor}`}>
@@ -296,7 +331,51 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-            </div>
+            )}
+
+            {activeTab === 'flagship' && (
+              <div className="grid lg:grid-cols-2 gap-8">
+                {[
+                  {
+                    title: "HackOverflow",
+                    image: "/placeholder.svg",
+                    status: "Annual Event",
+                    statusColor: "bg-purple-100 text-purple-800 dark:bg-purple-900/20 dark:text-purple-400",
+                    nextEvent: "Next Event: April 15-17, 2025",
+                    description: "Our annual hackathon where participants collaborate to create innovative solutions to real-world problems. Join us for 48 hours of coding, learning, and networking."
+                  },
+                  {
+                    title: "IconCoderZ",
+                    image: "/placeholder.svg",
+                    status: "Competition Series",
+                    statusColor: "bg-purple-100 text-purple-800 dark:bg-purple-900/20 dark:text-purple-400",
+                    nextEvent: "Next Event: May 9, 2025",
+                    description: "A competitive programming contest designed to test your coding skills and problem-solving abilities. Participate in beginner and expert categories."
+                  }
+                ].map((event, index) => (
+                  <div key={index} className="bg-background rounded-lg p-6 shadow-sm border border-primary/20 hover:shadow-md transition-all duration-300 transform hover:scale-105">
+                    <img src={event.image} alt={event.title} className="w-full h-64 object-cover mb-4 rounded-lg" />
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-bold">{event.title}</h4>
+                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${event.statusColor}`}>
+                        {event.status}
+                      </span>
+                    </div>
+                    <p className="text-sm text-primary font-medium mb-2">{event.nextEvent}</p>
+                    <p className="text-muted-foreground mb-3">{event.description}</p>
+                    <Link
+                      to="/events"
+                      className="inline-flex items-center gap-1 px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                    >
+                      <span className="group inline-flex items-center">
+                        Learn More
+                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:scale-110" />
+                      </span>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="text-center reveal">
@@ -306,52 +385,6 @@ export default function HomePage() {
             >
               View All Events
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Flagship Events */}
-      <section className="py-20 relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-16 h-16 bg-primary/5 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-20 h-20 bg-accent/5 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
-        </div>
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12 reveal">
-            <h2 className="text-4xl font-bold mb-4">
-              Our Flagship <span className="from-primary to-accent bg-gradient-to-r text-transparent bg-clip-text">Events</span>
-            </h2>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8">
-            {[
-              {
-                title: "HackOverflow",
-                image: "/placeholder.svg",
-                description: "Our annual hackathon where participants collaborate to create innovative solutions to real-world problems. Join us for 48 hours of coding, learning, and networking.",
-                nextEvent: "Next Event: April 15-17, 2024"
-              },
-              {
-                title: "IconCoderZ",
-                image: "/placeholder.svg",
-                description: "A competitive programming contest, designed to test your coding skills and problem-solving abilities. Participate in beginner and expert categories.",
-                nextEvent: "Next Event: May 9, 2024"
-              }
-            ].map((event, index) => (
-              <div key={index} className="bg-muted/30 rounded-lg p-8 border border-primary/20 hover:shadow-lg transition-all duration-300 transform hover:scale-105 reveal" style={{ animationDelay: `${index * 0.2}s` }}>
-                <img src={event.image} alt={event.title} className="w-full h-96 object-cover mb-4 rounded-lg" />
-                <h3 className="text-2xl font-bold mb-4">{event.title}</h3>
-                <p className="text-muted-foreground mb-4">{event.description}</p>
-                <p className="text-sm text-primary font-medium mb-4">{event.nextEvent}</p>
-                <Link to="/events" className="inline-flex items-center gap-1 px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors">
-                  <span className="group inline-flex items-center">
-                    Learn More
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:scale-110" />
-                  </span>
-                </Link>
-              </div>
-            ))}
           </div>
         </div>
       </section>
