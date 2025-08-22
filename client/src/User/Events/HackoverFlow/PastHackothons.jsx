@@ -60,7 +60,7 @@ const eventData = {
         ],
     },
     '2K23': {
-        title: 'CodeVerse 2K23',
+        title: 'HackOverFlow 2K23',
         description: 'A hackathon focused on developing web-based applications. The theme was "Future of Communication," challenging teams to build innovative platforms for connecting people.',
         gallerys: hridayamGalleryImages,
         winners: {
