@@ -10,6 +10,7 @@ const hridayamGalleryImages = [
     { id: 2, url: '/demo/Hackoverflow/photo1.jpg', alt: 'Team' },
     { id: 3, url: '/demo/Hackoverflow/photo2.jpg', alt: 'Team' },
 ];
+
 // Sample data for different event editions. This data would typically be fetched from an API.
 const eventData = {
     '2K24': {
@@ -22,19 +23,19 @@ const eventData = {
         gallerys: hridayamGalleryImages,
         winners: {
             first: {
-                teamName: 'EcoCoders',
-                projectLink: 'https://github.com/ecocoders/project-enviro',
-                members: ['Alice Johnson', 'Bob Williams', 'Charlie Davis'],
+                teamName: 'AIM',
+                projectLink: 'IIIT RGUKT RK VALLEY',
+                members: ['Panasa Viswanatha Vishnu','Ambati Vijaya Bhaskar Reedy','Vanapalli Madhu Deekshitha'],
             },
             second: {
-                teamName: 'GreenTech Innovators',
-                projectLink: 'https://github.com/greentech/smart-recycler',
-                members: ['Diana Prince', 'Bruce Wayne', 'Clark Kent'],
+                teamName: 'Team Arjuna',
+                projectLink: 'SRKR Engineering College',
+                members: ['Thirumalla sai naga manikanta','Nakka Veera vasu','Mekala Harish','Palivela Nikhileswar','Pedada Venkataramana','Dadala Rajesh'],
             },
             third: {
-                teamName: 'SustainaSolutions',
-                projectLink: 'https://github.com/sustaina/water-saver-app',
-                members: ['Eva Green', 'Frank Ocean', 'Grace Jones'],
+                teamName: 'Green Minds',
+                projectLink: 'SRKR Engineering College',
+                members: ['Tejassri Avinasha Ryali','Venkateswarlu Thanneru','T.Vigna Ramtej','Mohankrishna Puppala'],
             },
         },
         gallery: [
@@ -51,7 +52,12 @@ const eventData = {
         ],
         feedback: 'Participants gave the event a 4.8/5 rating, highlighting the quality of the workshops and the event organization.',
         videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // A placeholder video link
-        sponsors: ['TechCorp', 'GreenEnergy Inc.', 'Innovate Solutions'],
+
+        sponsors: [
+            { id: 1, url: '/demo/Hackoverflow/edu expose.png', alt: 'Judges evaluating projects' },
+            { id: 2, url: '/demo/Hackoverflow/Nareshhostel.png', alt: 'Award ceremony' },
+            { id: 3, url: '/demo/Hackoverflow/Sp1.png', alt: 'Networking session' },
+        ],
     },
     '2K23': {
         title: 'CodeVerse 2K23',
@@ -227,15 +233,10 @@ export default function PastHackothons() {
                                                     <p className="text-muted-foreground mb-4">
                                                         <span className="font-semibold text-foreground">Members:</span> {winner.members.join(', ')}
                                                     </p>
-                                                    <a
-                                                        href={winner.projectLink}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="inline-flex items-center text-primary hover:text-primary/80 font-semibold transition-colors"
-                                                    >
-                                                        <Link className="mr-1 w-4 h-4" />
-                                                        Project Link
-                                                    </a>
+                                                    <p className="text-muted-foreground mb-4">
+                                                        <span className="font-semibold text-primary">College:</span> {winner.projectLink}
+                                                    </p>
+                                                   
                                                 </CardContent>
                                             </Card>
                                         );
@@ -409,7 +410,7 @@ export default function PastHackothons() {
                                 <div className="relative overflow-hidden">
                                     <div className="flex animate-sponsors-scroll gap-6">
                                         {/* First set of sponsor logos */}
-                                        {currentEvent.gallery.map((sponsor, index) => (
+                                        {currentEvent.sponsors.map((sponsor, index) => (
                                             <div
                                                 key={index}
                                                 className="flex-shrink-0 w-54 h-28 rounded-lg  overflow-hidden border hover:shadow-md transition-all duration-300 hover:scale-105"
@@ -422,7 +423,7 @@ export default function PastHackothons() {
                                             </div>
                                         ))}
                                         {/* Duplicate set */}
-                                        {currentEvent.gallery.map((sponsor, index) => (
+                                        {currentEvent.sponsors.map((sponsor, index) => (
                                             <div
                                                 key={`duplicate-${index}`}
                                                 className="flex-shrink-0 w-54 h-28 rounded-lg overflow-hidden border hover:shadow-md transition-all duration-300 hover:scale-105"
@@ -435,7 +436,7 @@ export default function PastHackothons() {
                                             </div>
                                         ))}
                                         {/* Third set (optional) */}
-                                        {currentEvent.gallery.map((sponsor, index) => (
+                                        {/* {currentEvent.sponsors.map((sponsor, index) => (
                                             <div
                                                 key={`triple-${index}`}
                                                 className="flex-shrink-0 w-54 h-28 rounded-lg overflow-hidden border hover:shadow-md transition-all duration-300 hover:scale-105"
@@ -446,7 +447,7 @@ export default function PastHackothons() {
                                                     className="w-full h-full object-cover"
                                                 />
                                             </div>
-                                        ))}
+                                        ))} */}
                                     </div>
                                 </div>
 

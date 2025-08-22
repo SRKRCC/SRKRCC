@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Users, UserPlus, Award, Star, Code, Trophy, Camera, X, ChevronLeft, ChevronRight, Heart, Sparkles, Play } from 'lucide-react';
+import { Users, UserPlus, Award, Star, Code, Trophy, Camera, X, ChevronLeft, ChevronRight, Heart,User, Sparkles, Play } from 'lucide-react';
 
 // Header Component
 const Header = () => (
@@ -316,25 +316,25 @@ const ExecutiveBody = ({ executiveMembers, animateCards }) => (
 // Join Team Component
 const JoinTeam = () => (
     <section>
-        <div className="relative overflow-hidden  bg-card/80 rounded-xl shadow-2xl">
-            <div className="absolute inset-0 bg-accent/60"></div>
+        <div className="relative overflow-hidden border bg-card/80 rounded-xl shadow-2xl">
+            <div className="absolute inset-0 "></div>
             <div className="relative p-12 text-center text-black">
                 <div className="max-w-3xl mx-auto">
-                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
-                        <UserPlus className="w-8 h-8" />
+                    <div className="w-16 h-16 bg-foreground/20 rounded-full flex items-center justify-center mx-auto mb-6 ">
+                        <User className="w-8 h-8" />
                     </div>
-                    <h2 className="text-3xl font-bold mb-4">Join Our Executive Team</h2>
-                    <p className="text-lg text-orange-100 mb-8 leading-relaxed">
+                    <h2 className="text-3xl font-bold mb-4 text-accent">Join Our Executive Team</h2>
+                    <p className="text-lg text-muted-foreground  mb-8 leading-relaxed">
                         Ready to be part of SRKR Coding Club's executive body? Join us in organizing events,
                         workshops, and building an amazing tech community. Help us continue our mission to
-                        <span className="font-bold"> Learn • Build • Innovate</span>.
+                        <span className="font-bold text-accent"> Learn • Build • Innovate</span>.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <button className="bg-white text-orange-600 px-8 py-3 rounded-xl font-bold hover:bg-orange-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-3">
                             <Trophy className="w-5 h-5" />
                             Apply Now
                         </button>
-                        <button className="border-2 border-white text-white px-8 py-3 rounded-xl font-bold hover:bg-white hover:text-orange-600 transition-all duration-300 flex items-center justify-center gap-3">
+                        <button className="border-2 border-white text-black dark:text-white px-8 py-3 rounded-xl font-bold hover:bg-white hover:text-orange-600 transition-all duration-300 flex items-center justify-center gap-3">
                             <Sparkles className="w-5 h-5" />
                             Learn More
                         </button>
