@@ -18,12 +18,12 @@ const hridayamGalleryImages = [
 const hridayamEventData = {
     '2024': {
         title: 'Hridayam 2024',
-        description: 'A life-saving initiative to give back to the community. Join us in our annual blood donation camp and make a difference.',
-        location: 'SRKR Campus, Health Center',
-        date: 'September 22, 2024',
-        targetAudience: 'Open to all students, faculty, and staff',
+        description: 'Hridayam is a social service initiative by our club members, dedicated to giving back to the community and making a positive impact through compassion and service.',
+        location: 'Tabitha Old Age Home, Bhimavaram',
+        date: 'March 23, 2025',
+        targetAudience: 'SRKR Coding Club Representatives',
         gallery: hridayamGalleryImages,
-        impact: 'Each donation can save up to three lives. By donating, you are providing crucial support to patients in emergencies, surgeries, and those battling chronic illnesses.',
+        impact: 'This summer, Hridayam donated coolers to an old age home, bringing comfort and care to the residents. A small act of kindness that turned the heat into hope.',
         process: [
             'Registration and Health Checkup',
             'Blood Donation',
@@ -33,26 +33,6 @@ const hridayamEventData = {
         testimonials: [
             { author: 'Jane Doe', quote: 'An incredible experience! The mentors were so helpful, and the energy was fantastic. We learned so much in just one weekend.' },
             { author: 'John Smith', quote: 'The best hackathon I\'ve ever been to. The focus on sustainability was inspiring and made us think deeply about our project\'s impact.' },
-        ],
-    },
-    '2023': {
-        title: 'Hridayam 2023',
-        description: 'The 2023 blood donation drive saw a record number of participants, strengthening our community bonds and saving countless lives. Your contribution truly makes a difference.',
-        location: 'SRKR Main Auditorium',
-        date: 'September 24, 2023',
-        targetAudience: 'All students and faculty',
-        gallery: [
-            { id: 1, url: 'https://placehold.co/800x600/fcd34d/fff?text=Hridayam+2023', alt: 'Hridayam 2023 Event Photo' },
-            { id: 2, url: 'https://placehold.co/800x600/93c5fd/fff?text=Hridayam+2023', alt: 'Hridayam 2023 Donation' },
-        ],
-        impact: 'Last year, we collected over 500 units of blood, directly helping local hospitals meet their critical needs. Thank you to everyone who participated!',
-        process: [
-            'Registration and Health Screening',
-            'Blood Donation',
-            'Post-Donation Care',
-        ],
-        testimonials: [
-            { author: 'Chris Evans', quote: 'The organization was flawless. It felt great to contribute to such a meaningful cause.' },
         ],
     },
 };
@@ -109,7 +89,7 @@ const HridayamPastEvents = () => {
                     <div className="w-28 h-1 bg-accent dark:bg-gradient-to-r from-primary to-orange-500 mx-auto rounded-full mb-4"></div>
 
                     <p className="text-lg text-muted-foreground">
-                        A look back at our annual blood donation drives and the impact we’ve made together.
+                        Our social impact initiative, dedicated to giving back to the community through service.
                     </p>
                 </div>
             </div>
