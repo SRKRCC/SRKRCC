@@ -25,15 +25,9 @@ const hridayamEventData = {
         gallery: hridayamGalleryImages,
         impact: 'This summer, Hridayam donated coolers to an old age home, bringing comfort and care to the residents. A small act of kindness that turned the heat into hope.',
         process: [
-            'Registration and Health Checkup',
-            'Blood Donation',
-            'Rest and Refreshments',
-            'Receive Certificate and Donor Card',
+            'Hridayam reflects the spirit of giving—small acts of kindness, shared stories, and collective efforts that build hope and inspire change.',
         ],
-        testimonials: [
-            { author: 'Jane Doe', quote: 'An incredible experience! The mentors were so helpful, and the energy was fantastic. We learned so much in just one weekend.' },
-            { author: 'John Smith', quote: 'The best hackathon I\'ve ever been to. The focus on sustainability was inspiring and made us think deeply about our project\'s impact.' },
-        ],
+        
     },
 };
 

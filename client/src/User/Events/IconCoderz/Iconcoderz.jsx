@@ -50,7 +50,7 @@ const IconCoderz = () => {
                             </div>
                             <div className="flex flex-wrap gap-4">
                                 <Button size="lg" asChild>
-                                    <Link href="#register">Register Now</Link>
+                                    <Link href="#register">Reveal Soon....</Link>
                                 </Button>
                                 <Button variant="outline" size="lg" asChild>
                                     <Link href="#details">Learn More</Link>

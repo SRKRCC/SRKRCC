@@ -55,8 +55,8 @@ const eventData = {
             { id: 6, url: '/demo/Hackoverflow/photo6.jpg', alt: 'Hackathon venue' },
         ],
         testimonials: [
-            { author: 'Jane Doe', quote: 'An incredible experience! The mentors were so helpful, and the energy was fantastic. We learned so much in just one weekend.' },
-            { author: 'John Smith', quote: 'The best hackathon I\'ve ever been to. The focus on sustainability was inspiring and made us think deeply about our project\'s impact.' },
+            { author: 'Vasu', quote: 'An incredible experience! The mentors were so helpful, and the energy was fantastic. The collaboration and creativity throughout the event made it truly memorable.' },
+            { author: 'Bhaskar Reedy', quote: 'Winning at HackOverflow 2k24 was truly special, but the real victory was the learning and teamwork along the way. The experience gave me confidence to take on bigger challenges.' },
         ],
         feedback: 'Participants gave the event a 4.8/5 rating, highlighting the quality of the workshops and the event organization.',
         videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // A placeholder video link
@@ -439,7 +439,7 @@ export default function PastHackothons() {
                                         {currentEvent.sponsors.map((sponsor, index) => (
                                             <div
                                                 key={index}
-                                                className="flex-shrink-0 w-44 h-32 rounded-lg  overflow-hidden border hover:shadow-md transition-all duration-300 hover:scale-105"
+                                                className="flex-shrink-0 w-68 h-28 rounded-lg  overflow-hidden border hover:shadow-md transition-all duration-300 hover:scale-105"
                                             >
                                                 <img
                                                     src={sponsor.url}
@@ -452,7 +452,7 @@ export default function PastHackothons() {
                                         {currentEvent.sponsors.map((sponsor, index) => (
                                             <div
                                                 key={`duplicate-${index}`}
-                                                className="flex-shrink-0 w-44 h-32 rounded-lg overflow-hidden border hover:shadow-md transition-all duration-300 hover:scale-105"
+                                                className="flex-shrink-0 w-68 h-28 rounded-lg overflow-hidden border hover:shadow-md transition-all duration-300 hover:scale-105"
                                             >
                                                 <img
                                                     src={sponsor.url}

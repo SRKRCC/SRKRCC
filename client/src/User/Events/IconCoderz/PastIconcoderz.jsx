@@ -78,10 +78,10 @@ const eventData = {
             { id: 4, url: '/demo/Iconcoderz/ic24d.jpg', alt: 'Team photo' },
             { id: 5, url: '/demo/Iconcoderz/ic24c.jpg', alt: 'Coding in action' },
             { id: 6, url: '/demo/Iconcoderz/ic24d.jpg', alt: 'Event venue' },
-            { id: 7, url: '/demo/Iconcoderz/ic24g.png', alt: 'Participants networking' },
+            { id: 7, url: '/demo/Iconcoderz/ic24g.jpg', alt: 'Participants networking' },
         ],
         testimonials: [
-            { author: 'Venkata Sai Chakrarao', quote: 'This was my first coding competition and it exceeded my expectations. The smooth organization and exciting atmosphere made me want to come back next year!.' },
+            { author: 'Chakri Ramisetti', quote: 'This was my first coding competition and it exceeded my expectations. The smooth organization and exciting atmosphere made me want to come back next year!.' },
             { author: 'Siva Ramaraju Relangi', quote: 'I didn’t win this time, but I definitely learned a lot. The problems were challenging yet approachable, and the mentors were really supportive throughout the event' },
         ],
         feedback: null,

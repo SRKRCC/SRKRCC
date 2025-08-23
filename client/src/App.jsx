@@ -49,6 +49,7 @@ import Codequest from './User/Events/Codequest'
 import Edgecase from './User/Events/Edgecase'
 import Affiliates from './Pages/Affiliates'
 import Registrations from './Pages/JoinUs'
+import Contact from './Pages/Contact'
 import TeamPage from './Pages/TeamPage'
 import Admin from './Admin/admin'
 
@@ -78,6 +79,7 @@ const App = () => {
             <Route path="/events/edgecase" element={<Edgecase />} />
             <Route path="/alumni" element={<Alumni />} />
             <Route path="/team" element={<TeamPage />} />
+            <Route path="/contact" element={<Contact/>}/>
             <Route path="/affiliates" element={<Affiliates />} />
             <Route path="/Joinus" element={<Registrations />} />
           </Routes>
