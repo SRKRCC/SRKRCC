@@ -8,13 +8,17 @@ import FAQs from './FAQs';
 import { useEffect } from 'react';
 import ScrollToTopButton from '../../../Components/ScrollToTop';
 
+
+const schedule = null;
+const prizes = null;
+const theme = null;
 const Hackoverflow = () => {
     useEffect(() => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
-    }, []); 
+    }, []);
     return (
         <div>
             {/* Hero Section */}
@@ -30,7 +34,7 @@ const Hackoverflow = () => {
                             <div className="space-y-4 rounded-lg bg-muted/80 p-4">
                                 <div className="flex items-center gap-2 text-sm">
                                     <Calendar className="h-5 w-5 text-primary" />
-                                    <span>October 18-19, 2024</span>
+                                    <span>October , 2025  <i>[ Tentative ]</i></span>
                                 </div>
                                 <div className="flex items-center gap-2 text-sm">
                                     <MapPin className="h-5 w-5 text-primary" />
@@ -69,6 +73,8 @@ const Hackoverflow = () => {
                 <div className="container mx-auto px-4">
                     <div className="mx-auto max-w-3xl text-center">
                         <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">Event Details</h2>
+                        <div className="w-28 h-1 bg-gradient-to-r from-primary to-orange-500 mx-auto rounded-full mb-4"></div>
+
                         <p className="mb-12 text-lg text-muted-foreground">
                             HackOverflow is SRKR Coding Club's flagship hackathon event where participants collaborate to create
                             innovative solutions to real-world problems.
@@ -78,33 +84,52 @@ const Hackoverflow = () => {
                     <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                         <Card>
                             <CardContent className="p-6">
-                                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                                    <Calendar className="h-6 w-6 text-primary" />
+                                <div className="mb-4 flex items-center gap-3">
+                                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                                        <Calendar className="h-6 w-6 text-primary" />
+                                    </div>
+                                    <h3 className="mb-4 text-2xl font-bold">Schedule</h3>
                                 </div>
-                                <h3 className="mb-2 text-xl font-bold">Schedule</h3>
-                                <ul className="space-y-2 text-muted-foreground">
-                                    <li>
-                                        <strong>Day 1 (April 15):</strong> Registration, Opening Ceremony, Team Formation, Hacking Begins
-                                    </li>
-                                    <li>
-                                        <strong>Day 2 (April 16):</strong> Continued Hacking, Mentorship Sessions, Workshops
-                                    </li>
-                                    <li>
-                                        <strong>Day 3 (April 17):</strong> Project Submission, Presentations, Judging, Awards Ceremony
-                                    </li>
-                                </ul>
+                                {/* <h3 className="mb-2 text-xl font-bold">Schedule</h3> */}
+                                {schedule ? (
+                                    <ul className="space-y-2 text-muted-foreground">
+                                        <li>
+                                            <strong>Day 1 (April 15):</strong> Registration, Opening Ceremony, Team Formation, Hacking Begins
+                                        </li>
+                                        <li>
+                                            <strong>Day 2 (April 16):</strong> Continued Hacking, Mentorship Sessions, Workshops
+                                        </li>
+                                        <li>
+                                            <strong>Day 3 (April 17):</strong> Project Submission, Presentations, Judging, Awards Ceremony
+                                        </li>
+                                    </ul>
+                                ) : (
+                                    // <div className="flex h-32 items-center justify-center">
+                                    //     <span className="rounded-full bg-primary/10 px-6 py-3 text-primary text-lg font-semibold shadow-md">
+                                    //         🚀 Schedule Announcing Soon
+                                    //     </span>
+                                    // </div>
+                                    <div className=" bg-primary/10  flex h-40 flex-col items-center justify-center rounded-lg bg-muted/40">
+                                        <Calendar className="mb-2 h-10 w-10  text-muted-foreground/50" />
+                                        <span className=" text-primary text-xl font-semibold">Schedule Announcing Soon...</span>
+                                    </div>
+                                )}
                             </CardContent>
                         </Card>
 
                         <Card>
                             <CardContent className="p-6">
-                                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                                    <Users className="h-6 w-6 text-primary" />
+                                <div className="mb-4 flex items-center gap-3">
+                                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                                        <Users className="h-6 w-6 text-primary" />
+
+                                    </div>
+                                    <h3 className="mb-4 text-2xl font-bold">Eligibility</h3>
                                 </div>
-                                <h3 className="mb-2 text-xl font-bold">Eligibility</h3>
+                                {/* <h3 className="mb-2 text-xl font-bold">Eligibility</h3> */}
                                 <ul className="space-y-2 text-muted-foreground">
                                     <li>Open to all college students</li>
-                                    <li>Teams of 1-4 participants</li>
+                                    <li>Teams of 1-6 participants</li>
                                     <li>Participants must bring their own laptops and necessary equipment</li>
                                     <li>All skill levels welcome - from beginners to experienced developers</li>
                                 </ul>
@@ -113,24 +138,37 @@ const Hackoverflow = () => {
 
                         <Card>
                             <CardContent className="p-6">
-                                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                                    <Trophy className="h-6 w-6 text-primary" />
+                                <div className="mb-4 flex items-center gap-3">
+                                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                                        <Trophy className="h-6 w-6 text-primary" />
+                                    </div>
+                                    <h3 className="text-2xl font-bold">Prizes & Rewards</h3>
                                 </div>
-                                <h3 className="mb-2 text-xl font-bold">Prizes & Rewards</h3>
-                                <ul className="space-y-2 text-muted-foreground">
-                                    <li>
-                                        <strong>1st Place:</strong> ₹50,000 + Internship Opportunities
-                                    </li>
-                                    <li>
-                                        <strong>2nd Place:</strong> ₹30,000 + Tech Gadgets
-                                    </li>
-                                    <li>
-                                        <strong>3rd Place:</strong> ₹20,000 + Swag Kits
-                                    </li>
-                                    <li>
-                                        <strong>Special Categories:</strong> Best UI/UX, Most Innovative, Best Use of AI
-                                    </li>
-                                </ul>
+                                {/* <h3 className="mb-2 te/xt-xl font-bold">Prizes & Rewards</h3> */}
+                                {prizes ? (
+                                    <ul className="mt-6 space-y-2 text-lg text-muted-foreground">
+                                        <li>
+                                            <strong>1st Place:</strong> ₹50,000 + Internship Opportunities
+                                        </li>
+                                        <li>
+                                            <strong>2nd Place:</strong> ₹30,000 + Tech Gadgets
+                                        </li>
+                                        <li>
+                                            <strong>3rd Place:</strong> ₹20,000 + Swag Kits
+                                        </li>
+
+                                    </ul>
+                                ) : (
+                                    // <div className="flex h-32 items-center justify-center">
+                                    //     <span className="rounded-full bg-primary/10 px-8 py-3 text-primary font-semibold shadow-sm">
+                                    //         Prizes & Rewards Announce Soon......
+                                    //     </span>
+                                    // </div>
+                                    <div className="mt-8 bg-primary/10  flex h-40 flex-col items-center justify-center rounded-lg bg-muted/40">
+                                        <Trophy className="mb-2 h-10 w-10  text-muted-foreground/50" />
+                                        <span className=" text-primary text-xl font-semibold">Prizes & Rewards Announce Soon......</span>
+                                    </div>
+                                )}
                             </CardContent>
                         </Card>
                     </div>
@@ -138,76 +176,85 @@ const Hackoverflow = () => {
             </section>
 
             {/* Themes Section */}
-            <section className="bg-muted/50 py-16 md:py-24">
+            <section className="bg-muted/50 py-16 md:py-20">
                 <div className="container mx-auto px-4">
                     <div className="mx-auto max-w-3xl text-center">
-                        <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">Hackathon Themes</h2>
+                        <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-5xl">Hackathon Themes</h2>
+                        <div className="w-36 h-1 bg-gradient-to-r from-primary to-orange-500 mx-auto rounded-full mb-6"></div>
+
                         <p className="mb-12 text-lg text-muted-foreground">
                             Choose from one of these themes for your project or propose your own innovative idea.
                         </p>
                     </div>
+                    {theme ? (
+                        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                            <Card>
+                                <CardContent className="p-6">
+                                    <h3 className="mb-4 text-xl font-bold">Healthcare & Wellness</h3>
+                                    <p className="text-muted-foreground">
+                                        Develop solutions that address healthcare challenges, improve patient care, or promote wellness and
+                                        healthy living.
+                                    </p>
+                                </CardContent>
+                            </Card>
 
-                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                        <Card>
-                            <CardContent className="p-6">
-                                <h3 className="mb-4 text-xl font-bold">Healthcare & Wellness</h3>
-                                <p className="text-muted-foreground">
-                                    Develop solutions that address healthcare challenges, improve patient care, or promote wellness and
-                                    healthy living.
-                                </p>    
-                            </CardContent>
-                        </Card>
+                            <Card>
+                                <CardContent className="p-6">
+                                    <h3 className="mb-4 text-xl font-bold">Education Technology</h3>
+                                    <p className="text-muted-foreground">
+                                        Create innovative tools and platforms to enhance learning experiences, improve accessibility, or
+                                        address educational challenges.
+                                    </p>
+                                </CardContent>
+                            </Card>
 
-                        <Card>
-                            <CardContent className="p-6">
-                                <h3 className="mb-4 text-xl font-bold">Education Technology</h3>
-                                <p className="text-muted-foreground">
-                                    Create innovative tools and platforms to enhance learning experiences, improve accessibility, or
-                                    address educational challenges.
-                                </p>
-                            </CardContent>
-                        </Card>
+                            <Card>
+                                <CardContent className="p-6">
+                                    <h3 className="mb-4 text-xl font-bold">Sustainability & Environment</h3>
+                                    <p className="text-muted-foreground">
+                                        Build solutions that address environmental challenges, promote sustainability, or help communities
+                                        adapt to climate change.
+                                    </p>
+                                </CardContent>
+                            </Card>
 
-                        <Card>
-                            <CardContent className="p-6">
-                                <h3 className="mb-4 text-xl font-bold">Sustainability & Environment</h3>
-                                <p className="text-muted-foreground">
-                                    Build solutions that address environmental challenges, promote sustainability, or help communities
-                                    adapt to climate change.
-                                </p>
-                            </CardContent>
-                        </Card>
+                            <Card>
+                                <CardContent className="p-6">
+                                    <h3 className="mb-4 text-xl font-bold">Smart Cities & Infrastructure</h3>
+                                    <p className="text-muted-foreground">
+                                        Develop applications that improve urban living, enhance infrastructure, or make cities more efficient
+                                        and sustainable.
+                                    </p>
+                                </CardContent>
+                            </Card>
 
-                        <Card>
-                            <CardContent className="p-6">
-                                <h3 className="mb-4 text-xl font-bold">Smart Cities & Infrastructure</h3>
-                                <p className="text-muted-foreground">
-                                    Develop applications that improve urban living, enhance infrastructure, or make cities more efficient
-                                    and sustainable.
-                                </p>
-                            </CardContent>
-                        </Card>
+                            <Card>
+                                <CardContent className="p-6">
+                                    <h3 className="mb-4 text-xl font-bold">Financial Technology</h3>
+                                    <p className="text-muted-foreground">
+                                        Create solutions that address financial inclusion, improve financial literacy, or enhance financial
+                                        services and transactions.
+                                    </p>
+                                </CardContent>
+                            </Card>
 
-                        <Card>
-                            <CardContent className="p-6">
-                                <h3 className="mb-4 text-xl font-bold">Financial Technology</h3>
-                                <p className="text-muted-foreground">
-                                    Create solutions that address financial inclusion, improve financial literacy, or enhance financial
-                                    services and transactions.
-                                </p>
-                            </CardContent>
-                        </Card>
-
-                        <Card>
-                            <CardContent className="p-6">
-                                <h3 className="mb-4 text-xl font-bold">Open Innovation</h3>
-                                <p className="text-muted-foreground">
-                                    Have a unique idea that doesn't fit into the above categories? You're welcome to propose your own
-                                    innovative solution to any real-world problem.
-                                </p>
-                            </CardContent>
-                        </Card>
-                    </div>
+                            <Card>
+                                <CardContent className="p-6">
+                                    <h3 className="mb-4 text-xl font-bold">Open Innovation</h3>
+                                    <p className="text-muted-foreground">
+                                        Have a unique idea that doesn't fit into the above categories? You're welcome to propose your own
+                                        innovative solution to any real-world problem.
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </div>
+                    ) : (
+                        <div className="flex h-32 items-center justify-center">
+                            <span className="rounded-full bg-primary/10 px-8 py-3 text-primary text-xl font-semibold shadow-sm">
+                                Exciting hackathon themes will be revealed soon — stay tuned!
+                            </span>
+                        </div>
+                    )}
                 </div>
             </section>
 
@@ -218,6 +265,8 @@ const Hackoverflow = () => {
                 <div className="container mx-auto px-4">
                     <div className="mx-auto max-w-3xl text-center">
                         <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">Register for HackOverflow 2025</h2>
+                        <div className="w-28 h-1 bg-gradient-to-r from-primary to-orange-500 mx-auto rounded-full mb-4"></div>
+
                         <p className="mb-8 text-lg text-muted-foreground">
                             Ready to showcase your skills and creativity? Register now to secure your spot in HackOverflow 2025!
                         </p>

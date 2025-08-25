@@ -45,10 +45,14 @@ import Hackoverflow from './User/Events/HackoverFlow/Hackoverflow'
 import Alumni from './Pages/Alumni'
 import IconCoderz from './User/Events/IconCoderz/Iconcoderz'
 import Hridayam from './User/Events/Hridayam/Hridayam'
+import Codequest from './User/Events/Codequest'
+import Edgecase from './User/Events/Edgecase'
 import Affiliates from './Pages/Affiliates'
 import Registrations from './Pages/JoinUs'
+import Contact from './Pages/Contact'
 import TeamPage from './Pages/TeamPage'
 import Admin from './Admin/admin'
+
 
 const App = () => {
   const location = useLocation()
@@ -71,8 +75,11 @@ const App = () => {
             <Route path="/events/hackoverflow" element={<Hackoverflow />} />
             <Route path="/events/iconcoderz" element={<IconCoderz />} />
             <Route path="/events/hridayam" element={<Hridayam />} />
+            <Route path="/events/codequest" element={<Codequest />} />
+            <Route path="/events/edgecase" element={<Edgecase />} />
             <Route path="/alumni" element={<Alumni />} />
             <Route path="/team" element={<TeamPage />} />
+            <Route path="/contact" element={<Contact/>}/>
             <Route path="/affiliates" element={<Affiliates />} />
             <Route path="/Joinus" element={<Registrations />} />
           </Routes>

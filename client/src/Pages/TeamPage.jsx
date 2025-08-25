@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Users, UserPlus, Award, Star, Code, Trophy, Camera, X, ChevronLeft, ChevronRight, Heart, Sparkles, Play } from 'lucide-react';
+import { Users, UserPlus, Award, Star, Code, Trophy, Camera, X, ChevronLeft, ChevronRight, Heart,User, Sparkles, Play } from 'lucide-react';
 
 // Header Component
 const Header = () => (
@@ -18,7 +18,7 @@ const Header = () => (
                     Meet the passionate individuals behind SRKR Coding Club who are dedicated to
                     <span className="font-semibold text-orange-600 mx-1">Learn • Build • Innovate</span>
                     .We collaborate on projects, organize events, and inspire peers to explore technology.
-Together, we turn ideas into impactful solutions.
+                    Together, we turn ideas into impactful solutions.
                 </p>
             </div>
         </div>
@@ -31,20 +31,20 @@ const Convener = ({ convener }) => (
         <div className="text-center mb-12">
             <div className="inline-flex items-center gap-3 mb-4">
                 <Award className="w-8 h-8 text-orange-600" />
-                <h2 className="text-4xl font-bold text-foreground">Club Convener</h2>
+                <h2 className="text-4xl font-bold text-foreground mb-2">Club Convener</h2>
             </div>
             <div className="w-20 h-1 bg-gradient-to-r from-orange-500 to-red-500 mx-auto rounded-full"></div>
         </div>
 
         <div className="max-w-5xl mx-auto">
             {/* <div className="bg-card rounded-3xl shadow-1xl border border-border overflow-hidden group hover:shadow-3xl transition-all duration-500"> */}
-            <div className="bg-card rounded-3xl shadow-1xl border-[0.5px] border-border overflow-hidden group hover:shadow-3xl transition-all duration-500">
+            <div className="bg-card rounded-3xl shadow-5xl border-[0.5px] border-border overflow-hidden group hover:shadow-3xl transition-all duration-500">
 
                 <div className="bg-gradient-to-r from-orange-500 to-red-600 p-[3px]">
                     <div className="bg-card/95 rounded-2xl p-8">
-                        <div className="flex flex-col lg:flex-row items-center gap-8">
+                        <div className="flex flex-col lg:flex-row items-center gap-12">
                             <div className="relative flex-shrink-0">
-                                <div className="w-48 h-48 rounded-full overflow-hidden  border-orange-500 shadow-2xl mx-auto group-hover:scale-110 transition-transform duration-500">
+                                <div className="w-56 h-56 rounded-full overflow-hidden  border-orange-500 shadow-2xl mx-auto group-hover:scale-105 transition-transform duration-500">
                                     <img
                                         src={convener.image}
                                         alt={convener.name}
@@ -52,9 +52,9 @@ const Convener = ({ convener }) => (
                                     />
                                 </div>
 
-                                <div className="absolute -bottom-3 -right-3 w-12 h-12 bg-accent rounded-full flex items-center justify-center shadow-lg group-hover:rotate-180 transition-transform duration-500">
+                                {/* <div className="absolute -bottom-3 -right-3 w-12 h-12 bg-accent rounded-full flex items-center justify-center shadow-lg group-hover:rotate-180 transition-transform duration-500">
                                     <Star className="w-6 h-6 text-white fill-current" />
-                                </div>
+                                </div> */}
                             </div>
 
                             <div className="flex-1 text-center lg:text-left">
@@ -173,7 +173,7 @@ const LeadershipTeam = ({ heads, animateCards }) => (
             <div className="w-20 h-1 bg-gradient-to-r from-orange-500 to-red-500 mx-auto rounded-full mt-6"></div>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-12 max-w-5xl mx-auto">
             {heads.map((head, index) => (
                 <div
                     key={index}
@@ -185,7 +185,7 @@ const LeadershipTeam = ({ heads, animateCards }) => (
                         <div className="relative overflow-hidden">
                             <div className="w-full h-48 bg-gradient-to-r from-orange-200 to-orange-200  dark:from-orange-900/20 dark:to-red-900/20 group-hover:from-orange-300 group-hover:to-orange-300 dark:group-hover:from-orange-800/30 dark:group-hover:to-red-800/30 transition-colors duration-500"></div>
                             <div className="bg-card/65 absolute inset-0 flex items-center justify-center">
-                                <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
+                                <div className="w-36 h-36 rounded-full overflow-hidden border-4 border-white shadow-xl group-hover:scale-110  transition-transform duration-500">
                                     <img
                                         src={head.image}
                                         alt={head.name}
@@ -203,8 +203,7 @@ const LeadershipTeam = ({ heads, animateCards }) => (
                             <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-orange-600 transition-colors">
                                 {head.name}
                             </h3>
-                            <p className="text-lg text-orange-600 font-semibold mb-2">{head.title}</p>
-                            <p className="text-sm text-muted-foreground font-medium">{head.vertical}</p>
+                            <p className="text-lg text-orange-400 font-semibold mb-2">{head.title}</p>
                         </div>
                     </div>
                 </div>
@@ -317,25 +316,25 @@ const ExecutiveBody = ({ executiveMembers, animateCards }) => (
 // Join Team Component
 const JoinTeam = () => (
     <section>
-        <div className="relative overflow-hidden  bg-card/80 rounded-xl shadow-2xl">
-            <div className="absolute inset-0 bg-accent/60"></div>
+        <div className="relative overflow-hidden border bg-card/80 rounded-xl shadow-2xl">
+            <div className="absolute inset-0 "></div>
             <div className="relative p-12 text-center text-black">
                 <div className="max-w-3xl mx-auto">
-                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
-                        <UserPlus className="w-8 h-8" />
+                    <div className="w-16 h-16 bg-foreground/20 rounded-full flex items-center justify-center mx-auto mb-6 ">
+                        <User className="w-8 h-8" />
                     </div>
-                    <h2 className="text-3xl font-bold mb-4">Join Our Executive Team</h2>
-                    <p className="text-lg text-orange-100 mb-8 leading-relaxed">
+                    <h2 className="text-3xl font-bold mb-4 text-accent">Join Our Executive Team</h2>
+                    <p className="text-lg text-muted-foreground  mb-8 leading-relaxed">
                         Ready to be part of SRKR Coding Club's executive body? Join us in organizing events,
                         workshops, and building an amazing tech community. Help us continue our mission to
-                        <span className="font-bold"> Learn • Build • Innovate</span>.
+                        <span className="font-bold text-accent"> Learn • Build • Innovate</span>.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <button className="bg-white text-orange-600 px-8 py-3 rounded-xl font-bold hover:bg-orange-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-3">
                             <Trophy className="w-5 h-5" />
                             Apply Now
                         </button>
-                        <button className="border-2 border-white text-white px-8 py-3 rounded-xl font-bold hover:bg-white hover:text-orange-600 transition-all duration-300 flex items-center justify-center gap-3">
+                        <button className="border-2 border-white text-black dark:text-white px-8 py-3 rounded-xl font-bold hover:bg-white hover:text-orange-600 transition-all duration-300 flex items-center justify-center gap-3">
                             <Sparkles className="w-5 h-5" />
                             Learn More
                         </button>
@@ -361,61 +360,52 @@ const TeamPage = () => {
         name: "Dr. David Raju Kuppala",
         title: "Club Convener",
         image: "/sample.jpg",
-        bio: "Leading SRKR Coding Club with a vision to empower students in technology and innovation. Guiding the next generation of developers and tech enthusiasts.",
-        email: "davidraju@gmail.com",
+        bio: "Leading SRKR Coding Club with a vision to empower students in technology and innovation.",
+        email: "davidrajukuppala@srkrec.ac.in",
         department: "Computer Science & Engineering"
     };
 
     const heads = [
         {
-            name: "Ankith",
+            name: "Ankith Pissay",
             title: "President",
             image: "/sample.jpg",
-            vertical: "Overall Leadership & Strategy"
         },
         {
-            name: "Likitha",
+            name: "P. Yogendra Shanmuka Sai",
             title: "Vice President",
             image: "/sample.jpg",
-            vertical: "Events & Community Engagement"
         },
         {
-            name: "Yogendra",
+            name: "Challa Likitha Bhavani ",
             title: "Technical Secretary",
             image: "/sample.jpg",
-            vertical: "Technical Operations & Development"
         }
     ];
 
     const coreMembers = [
         {
             name: "Rahul Krishna",
-            role: "Web Development Lead",
             image: "/sample.jpg"
         },
         {
             name: "Sneha Agarwal",
-            role: "UI/UX Design Lead",
             image: "/sample.jpg"
         },
         {
             name: "Karthik Nair",
-            role: "Mobile App Lead",
             image: "/sample.jpg"
         },
         {
             name: "Divya Rao",
-            role: "Data Science Lead",
             image: "/api/placeholder/160/160"
         },
         {
             name: "Ankit Gupta",
-            role: "DevOps Lead",
             image: "/api/placeholder/160/160"
         },
         {
             name: "Meera Singh",
-            role: "Content & Marketing Lead",
             image: "/api/placeholder/160/160"
         }
     ];

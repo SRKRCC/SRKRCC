@@ -1,27 +1,49 @@
 import { useState, useRef, useEffect } from 'react';
-import { CalendarCheck, FileText, Trophy, Users, Image, Quote, Youtube, Link, Award } from 'lucide-react';
+import { CalendarCheck, FileText, Trophy, Users, Image, Quote, Youtube, Link, Award, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Card, CardContent } from '../../../Components/ui/card';
+import { Button } from '../../../Components/ui/button';
+
+
+
+const hackoverflowGalleryImages = [
+    { id: 1, url: '/demo/Hackoverflow/hk23b.jpg', alt: 'Team' },
+    { id: 2, url: '/demo/Hackoverflow/hk23g.png', alt: 'Team' },
+    { id: 3, url: '/demo/Hackoverflow/hk23h.png', alt: 'Team' },
+
+
+];
+const hackoverflow24GalleryImages = [
+    { id: 1, url: '/demo/Hackoverflow/photo1.jpg', alt: 'Teams' },
+    { id: 2, url: '/demo/Hackoverflow/photo2.jpg', alt: 'Team' },
+    { id: 3, url: '/demo/Hackoverflow/photo3.jpg', alt: 'Team' },
+    { id: 3, url: '/demo/Hackoverflow/photo4.jpg', alt: 'Team' },
+];
 
 // Sample data for different event editions. This data would typically be fetched from an API.
 const eventData = {
     '2K24': {
         title: 'Hackoverflow 2K24',
         description: 'A 24-hour hackathon focused on building innovative solutions for environmental sustainability. Participants developed projects ranging from waste management trackers to renewable energy dashboards. The event was a huge success, fostering collaboration and creative problem-solving.',
+        location: 'SRKR Engineering College, Bhimavaram.',
+        date: 'October 18-19, 2024',
+        team: 'Teams of 3-6 participants',
+        poster: '/demo/EventPosters/Hackoverflow2k24.png',
+        gallerys: hackoverflow24GalleryImages,
         winners: {
             first: {
-                teamName: 'EcoCoders',
-                projectLink: 'https://github.com/ecocoders/project-enviro',
-                members: ['Alice Johnson', 'Bob Williams', 'Charlie Davis'],
+                teamName: 'AIM',
+                projectLink: 'IIIT RGUKT RK VALLEY',
+                members: ['Panasa Viswanatha Vishnu', 'Ambati Vijaya Bhaskar Reedy', 'Vanapalli Madhu Deekshitha'],
             },
             second: {
-                teamName: 'GreenTech Innovators',
-                projectLink: 'https://github.com/greentech/smart-recycler',
-                members: ['Diana Prince', 'Bruce Wayne', 'Clark Kent'],
+                teamName: 'Team Arjuna',
+                projectLink: 'SRKR Engineering College',
+                members: ['Thirumalla sai naga manikanta', 'Nakka Veera vasu', 'Mekala Harish', 'Palivela Nikhileswar', 'Pedada Venkataramana', 'Dadala Rajesh'],
             },
             third: {
-                teamName: 'SustainaSolutions',
-                projectLink: 'https://github.com/sustaina/water-saver-app',
-                members: ['Eva Green', 'Frank Ocean', 'Grace Jones'],
+                teamName: 'Green Minds',
+                projectLink: 'SRKR Engineering College',
+                members: ['Tejassri Avinasha Ryali', 'Venkateswarlu Thanneru', 'T.Vigna Ramtej', 'Mohankrishna Puppala'],
             },
         },
         gallery: [
@@ -33,16 +55,26 @@ const eventData = {
             { id: 6, url: '/demo/Hackoverflow/photo6.jpg', alt: 'Hackathon venue' },
         ],
         testimonials: [
-            { author: 'Jane Doe', quote: 'An incredible experience! The mentors were so helpful, and the energy was fantastic. We learned so much in just one weekend.' },
-            { author: 'John Smith', quote: 'The best hackathon I\'ve ever been to. The focus on sustainability was inspiring and made us think deeply about our project\'s impact.' },
+            { author: 'Vasu', quote: 'An incredible experience! The mentors were so helpful, and the energy was fantastic. The collaboration and creativity throughout the event made it truly memorable.' },
+            { author: 'Bhaskar Reedy', quote: 'Winning at HackOverflow 2k24 was truly special, but the real victory was the learning and teamwork along the way. The experience gave me confidence to take on bigger challenges.' },
         ],
         feedback: 'Participants gave the event a 4.8/5 rating, highlighting the quality of the workshops and the event organization.',
         videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // A placeholder video link
-        sponsors: ['TechCorp', 'GreenEnergy Inc.', 'Innovate Solutions'],
+
+        sponsors: [
+            { id: 1, url: '/demo/Hackoverflow/edu expose.png', alt: 'Judges evaluating projects' },
+            { id: 2, url: '/demo/Hackoverflow/Nareshhostel.png', alt: 'Award ceremony' },
+            { id: 3, url: '/demo/Hackoverflow/Sp1.png', alt: 'Networking session' },
+        ],
     },
     '2K23': {
-        title: 'CodeVerse 2K23',
+        title: 'HackOverFlow 2K23',
         description: 'A hackathon focused on developing web-based applications. The theme was "Future of Communication," challenging teams to build innovative platforms for connecting people.',
+        gallerys: hackoverflowGalleryImages,
+        location: 'SRKR Engineering College, Bhimavaram.',
+        date: 'October 19-20, 2023',
+        team: 'Teams of 3-6 participants',
+        poster: '/demo/EventPosters/Hackoverflow2k23.png',
         winners: {
             first: {
                 teamName: 'Syntax Savants',
@@ -61,47 +93,29 @@ const eventData = {
             },
         },
         gallery: [
-            { id: 4, url: 'https://placehold.co/800x600/fcd34d/fff?text=Photo+A', alt: 'Opening ceremony' },
-            { id: 5, url: 'https://placehold.co/800x600/93c5fd/fff?text=Photo+B', alt: 'Group photo' },
+            { id: 1, url: '/demo/Hackoverflow/hk23a.jpg', alt: 'Teams' },
+            { id: 2, url: '/demo/Hackoverflow/hk23b.jpg', alt: 'Team' },
+            { id: 3, url: '/demo/Hackoverflow/hk23f.jpg', alt: 'Team' },
+            { id: 4, url: '/demo/Hackoverflow/hk23d.png', alt: 'Team' },
+            { id: 5, url: '/demo/Hackoverflow/hk23c.png', alt: 'Team' },
+            { id: 6, url: '/demo/Hackoverflow/hk23e.png', alt: 'Team' },
         ],
         testimonials: [
-            { author: 'Chris Evans', quote: 'The workshops on full-stack development were invaluable. The mentors were amazing and really helped us refine our idea.' },
+            { author: '', quote: 'Beyond the coding, HackOverflow 2k23 created an amazing atmosphere of innovation and collaboration. Meeting like-minded peers and brainstorming ideas together was the best part.' },
+            { author: 'Chris Evans', quote: 'HackOverflow 2k23 was my first hackathon, and it truly inspired me. The mentorship and workshops helped me understand real-world problem-solving. I walked away with new skills and a lot more confidence.' },
+
         ],
         feedback: null,
         videoUrl: 'https://www.youtube.com/embed/q3J0oQ_3zQ', // Another placeholder video link
-        sponsors: ['Global Communications', 'WebSphere Labs'],
-    },
-    '2K22': {
-        title: 'Innovate 2K22',
-        description: 'A beginner-friendly hackathon with the theme of "Social Good." The event was designed to introduce new developers to the world of hackathons and project-based learning.',
-        winners: {
-            first: {
-                teamName: 'Team Alpha',
-                projectLink: 'https://github.com/teamalpha/help-local',
-                members: ['Luke Skywalker', 'Leia Organa', 'Han Solo'],
-            },
-            second: {
-                teamName: 'Beta Builders',
-                projectLink: 'https://github.com/betabuilders/community-garden-app',
-                members: ['Darth Vader', 'Boba Fett', 'Kylo Ren'],
-            },
-            third: {
-                teamName: 'Gamma Group',
-                projectLink: 'https://github.com/gammagroup/volunteerease',
-                members: ['Yoda', 'Obi-Wan Kenobi', 'Chewbacca'],
-            },
-        },
-        gallery: [
-            { id: 6, url: 'https://placehold.co/800x600/a78bfa/fff?text=Photo+X', alt: 'Event space' },
-            { id: 7, url: 'https://placehold.co/800x600/f472b6/fff?text=Photo+Y', alt: 'Networking session' },
-            { id: 8, url: 'https://placehold.co/800x600/6b7280/fff?text=Photo+Z', alt: 'Team presentation' },
+        sponsors: [
+            { id: 1, url: '/demo/Hackoverflow/hk23sp1.jpg', alt: 'Judges evaluating projects' },
+            { id: 2, url: '/demo/Hackoverflow/hk23sp2.png', alt: 'Award ceremony' },
+            { id: 3, url: '/demo/Hackoverflow/hk23sp1.jpg', alt: 'Networking session' },
+            { id: 4, url: '/demo/Hackoverflow/hk23sp2.png', alt: 'Award ceremony' },
+            { id: 5, url: '/demo/Hackoverflow/hk23sp1.jpg', alt: 'Networking session' },
+            { id: 6, url: '/demo/Hackoverflow/hk23sp2.png', alt: 'Award ceremony' },
+
         ],
-        testimonials: [
-            { author: 'Darth Sidious', quote: 'A very welcoming environment for beginners. The judging was fair, and the feedback was constructive. A great starting point for aspiring hackers.' },
-        ],
-        feedback: null,
-        videoUrl: 'https://www.youtube.com/embed/p1J5rC7R7q0',
-        sponsors: ['Community Partners', 'Nexus Technologies'],
     },
 };
 
@@ -110,6 +124,18 @@ export default function PastHackothons() {
     const mainContentRef = useRef(null);
     const currentEvent = eventData[selectedEvent];
     const eventYears = Object.keys(eventData).sort((a, b) => b.localeCompare(a));
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [isHovering, setIsHovering] = useState(false);
+
+    useEffect(() => {
+        let interval;
+        if (!isHovering) {
+            interval = setInterval(() => {
+                setActiveIndex((current) => (current + 1) % currentEvent.gallerys.length);
+            }, 3000);
+        }
+        return () => clearInterval(interval);
+    }, [isHovering, currentEvent.gallerys.length]);
 
     const handleEventSelect = (year) => {
         if (mainContentRef.current) {
@@ -120,15 +146,27 @@ export default function PastHackothons() {
         }
         setSelectedEvent(year);
     };
+    const handlePrev = () => {
+        setActiveIndex((current) => (current - 1 + currentEvent.gallerys.length) % currentEvent.gallerys.length);
+    };
 
+    const handleNext = () => {
+        setActiveIndex((current) => (current + 1) % currentEvent.gallerys.length);
+    };
+
+    const totalImages = currentEvent.gallerys.length;
+    const prevIndex = (activeIndex - 1 + totalImages) % totalImages;
+    const nextIndex = (activeIndex + 1) % totalImages;
     return (
         <div className="min-h-screen bg-background text-foreground">
             {/* Centered header for the entire page */}
             <div className="container mx-auto px-4 py-8">
-                <div className="mx-auto max-w-3xl text-center mb-6">
-                    <h1 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">
+                <div className="mx-auto max-w-3xl text-center mb-8">
+                    <h1 className="my-6 text-3xl font-bold tracking-tight md:text-4xl">
                         Previous Editions
                     </h1>
+                    <div className="w-28 h-1 bg-gradient-to-r from-primary to-orange-500 mx-auto rounded-full mb-4"></div>
+
                     <p className="text-lg text-muted-foreground">
                         Our past hackathons reflect a journey of innovation, collaboration, and hands-on problem-solving across diverse tech challenges.
                     </p>
@@ -169,12 +207,26 @@ export default function PastHackothons() {
                                             <h2 className="text-2xl md:text-2xl font-bold">{currentEvent.title}</h2>
                                         </div>
                                         <p className="text-lg text-muted-foreground border-l-4 border-primary pl-4 py-2">{currentEvent.description}</p>
+                                        <div className="space-y-2 text-sm text-muted-foreground">
+                                            <div className="flex items-center gap-2">
+                                                <CalendarCheck className="h-5 w-5 text-red-500" />
+                                                <span>{currentEvent.date}</span>
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                <MapPin className="h-5 w-5 text-red-500" />
+                                                <span>{currentEvent.location}</span>
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                <Users className="h-5 w-5 text-red-500" />
+                                                <span>{currentEvent.team}</span>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     {/* Right side - Image */}
                                     <div className="aspect-video w-full rounded-lg overflow-hidden border bg-muted">
                                         <img
-                                            src="/demo/Hackoverflow/photo1.jpg"
+                                            src={currentEvent.poster}
                                             alt={`${currentEvent.title} event image`}
                                             className="w-full h-full object-cover"
                                         />
@@ -207,15 +259,10 @@ export default function PastHackothons() {
                                                     <p className="text-muted-foreground mb-4">
                                                         <span className="font-semibold text-foreground">Members:</span> {winner.members.join(', ')}
                                                     </p>
-                                                    <a
-                                                        href={winner.projectLink}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="inline-flex items-center text-primary hover:text-primary/80 font-semibold transition-colors"
-                                                    >
-                                                        <Link className="mr-1 w-4 h-4" />
-                                                        Project Link
-                                                    </a>
+                                                    <p className="text-muted-foreground mb-4">
+                                                        <span className="font-semibold text-primary">College:</span> {winner.projectLink}
+                                                    </p>
+
                                                 </CardContent>
                                             </Card>
                                         );
@@ -298,7 +345,7 @@ export default function PastHackothons() {
                                 </div>
                             </section>
 
-                            {/* Event Video Section */}
+                            {/* Event Video Section
                             <section className="mb-8">
                                 <h3 className="mb-4 text-xl font-bold flex items-center">
                                     <Youtube className="mr-2 text-red-500" />
@@ -315,6 +362,69 @@ export default function PastHackothons() {
                                         ></iframe>
                                     </div>
                                 </div>
+                            </section> */}
+
+                            {/* Gallery Section with carousel from Hridayam component */}
+                            <section className="mb-8">
+                                <h3 className="mb-4 text-xl font-bold flex items-center">
+                                    <Image className="mr-2 text-red-500" />
+                                    Event Gallery
+                                </h3>
+                                <div
+                                    className="relative overflow-hidden w-full flex justify-center items-center h-[200px] sm:h-[250px] md:h-[300px]"
+                                    onMouseEnter={() => setIsHovering(true)}
+                                    onMouseLeave={() => setIsHovering(false)}
+                                >
+                                    {/* Navigation buttons for small screens */}
+                                    <div className="absolute top-1/2 -translate-y-1/2 left-4 z-30 lg:hidden">
+                                        <Button size="icon" variant="outline" onClick={handlePrev}>
+                                            <ChevronLeft />
+                                        </Button>
+                                    </div>
+                                    <div className="absolute top-1/2 -translate-y-1/2 right-4 z-30 lg:hidden">
+                                        <Button size="icon" variant="outline" onClick={handleNext}>
+                                            <ChevronRight />
+                                        </Button>
+                                    </div>
+
+                                    {currentEvent.gallerys.map((image, index) => {
+                                        let transformStyle;
+                                        let zIndex = 10;
+                                        let opacity = 0;
+
+                                        if (index === prevIndex) {
+                                            transformStyle = 'translateX(calc(-50% - 250px)) scale(0.6)';
+                                            zIndex = 10;
+                                            opacity = 1;
+                                        } else if (index === activeIndex) {
+                                            transformStyle = 'translateX(-50%) scale(1.0)';
+                                            zIndex = 20;
+                                            opacity = 1;
+                                        } else if (index === nextIndex) {
+                                            transformStyle = 'translateX(calc(-50% + 250px)) scale(0.6)';
+                                            zIndex = 10;
+                                            opacity = 1;
+                                        } else {
+                                            transformStyle = 'translateX(-50%) scale(0.6)';
+                                            zIndex = 0;
+                                            opacity = 0;
+                                        }
+
+                                        return (
+                                            <img
+                                                key={image.id}
+                                                src={image.url}
+                                                alt={image.alt}
+                                                className={`absolute top-0 left-1/2 w-auto h-full aspect-[16/9] object-cover transition-all duration-[2000ms] ease-in-out shadow-lg ${index === activeIndex ? 'rounded-none' : 'rounded-xl'}`}
+                                                style={{
+                                                    transform: transformStyle,
+                                                    zIndex: zIndex,
+                                                    opacity: opacity,
+                                                }}
+                                            />
+                                        );
+                                    })}
+                                </div>
                             </section>
 
                             {/* Sponsors Section */}
@@ -324,12 +434,12 @@ export default function PastHackothons() {
                                     Sponsors
                                 </h3>
                                 <div className="relative overflow-hidden">
-                                    <div className="flex animate-sponsors-scroll gap-6">
+                                    <div className="flex animate-sponsors-scroll gap-12">
                                         {/* First set of sponsor logos */}
-                                        {currentEvent.gallery.map((sponsor, index) => (
+                                        {currentEvent.sponsors.map((sponsor, index) => (
                                             <div
                                                 key={index}
-                                                className="flex-shrink-0 w-54 h-28 rounded-lg  overflow-hidden border hover:shadow-md transition-all duration-300 hover:scale-105"
+                                                className="flex-shrink-0 w-68 h-28 rounded-lg  overflow-hidden border hover:shadow-md transition-all duration-300 hover:scale-105"
                                             >
                                                 <img
                                                     src={sponsor.url}
@@ -339,10 +449,10 @@ export default function PastHackothons() {
                                             </div>
                                         ))}
                                         {/* Duplicate set */}
-                                        {currentEvent.gallery.map((sponsor, index) => (
+                                        {currentEvent.sponsors.map((sponsor, index) => (
                                             <div
                                                 key={`duplicate-${index}`}
-                                                className="flex-shrink-0 w-54 h-28 rounded-lg overflow-hidden border hover:shadow-md transition-all duration-300 hover:scale-105"
+                                                className="flex-shrink-0 w-68 h-28 rounded-lg overflow-hidden border hover:shadow-md transition-all duration-300 hover:scale-105"
                                             >
                                                 <img
                                                     src={sponsor.url}
@@ -352,7 +462,7 @@ export default function PastHackothons() {
                                             </div>
                                         ))}
                                         {/* Third set (optional) */}
-                                        {currentEvent.gallery.map((sponsor, index) => (
+                                        {/* {currentEvent.sponsors.map((sponsor, index) => (
                                             <div
                                                 key={`triple-${index}`}
                                                 className="flex-shrink-0 w-54 h-28 rounded-lg overflow-hidden border hover:shadow-md transition-all duration-300 hover:scale-105"
@@ -363,7 +473,7 @@ export default function PastHackothons() {
                                                     className="w-full h-full object-cover"
                                                 />
                                             </div>
-                                        ))}
+                                        ))} */}
                                     </div>
                                 </div>
 
