@@ -1,13 +1,13 @@
 "use client"
 
 import { useState } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/card"
-import { Button } from "../../components/ui/button"
-import { Input } from "../../components/ui/input"
-import { Label } from "../../components/ui/label"
-import { Textarea } from "../../components/ui/textarea"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/ui/tabs"
-import { Badge } from "../../components/ui/badge"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../Components/ui/card"
+import { Button } from "../../Components/ui/button"
+import { Input } from "../../Components/ui/input"
+import { Label } from "../../Components/ui/label"
+import { Textarea } from "../../Components/ui/textarea"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../Components/ui/tabs"
+import { Badge } from "../../Components/ui/badge"
 import { Upload, Download, Save, FileSpreadsheet, Users, TrendingUp } from "lucide-react"
 
 export default function Affiliates() {
