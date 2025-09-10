@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, useLocation } from "react-router-dom"
-import { Button } from "../components/ui/button"
+import { Button } from "../Components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "../Components/ui/sheet"
 import {
   Code2,
