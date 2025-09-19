@@ -16,6 +16,7 @@ import {
   User,
 } from "lucide-react"
 import ScrollToTopButton from "../Components/ScrollToTop"
+import { Button } from "../Components/ui/button"
 
 // Counter component for animated numbers
 function Counter({ end, duration = 2000 }) {
@@ -76,10 +77,10 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Side */}
             <div className="space-y-6 reveal">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-accent/80 text-white text-sm font-medium">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-accent text-white text-sm font-medium">
                 Learn - Build - Innovate
               </div>
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-5xl lg:text-5xl font-bold leading-tight">
                 SRKR{" "}
                 <span className="from-primary to-accent bg-gradient-to-r text-transparent bg-clip-text">&lt;Coding Club&gt;</span>{" "}
               </h1>
@@ -87,18 +88,12 @@ export default function HomePage() {
                 Empowering students to enhance their coding skills, foster innovation, and build a community of tech enthusiasts.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  to="/events"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                >
-                  Explore Events
-                </Link>
-                <Link
-                  to="/joinus"
-                  className="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-accent hover:text-primary-foreground transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                >
-                  Join Us
-                </Link>
+                <Button variant="formative" size="xlg">
+                  <Link to="/events"> Explore Events </Link>
+                </Button>
+                <Button variant="outline" size="xlg">
+                  <Link to="/joinus" >Join Us</Link>
+                </Button>
               </div>
             </div>
 
@@ -110,13 +105,13 @@ export default function HomePage() {
                   <img
                     src="/srkrcc-logo.png"
                     alt="SRKR Coding Club Logo"
-                    className="w-104 h-104 object-contain dark:hidden  transition-transform duration-300 hover:scale-110 glow-accent"
+                    className="w-104 h-104 object-contain dark:hidden  transition-transform duration-300 hover:scale-110 "
                   />
                   {/* Dark theme logo */}
                   <img
                     src="/srkrcc-logo.png"
                     alt="SRKR Coding Club Logo"
-                    className="w-104 h-104 object-contain hidden dark:block transition-transform duration-300 hover:scale-110 glow-accent"
+                    className="w-104 h-104 object-contain hidden dark:block transition-transform duration-300 hover:scale-110 "
                   />
                 </div>
               </div>
@@ -137,10 +132,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Users, number: "300", label: "Affilites" },
-              { icon: Users, number: "80", label: "EBR & ABR's" },
-              { icon: Code, number: "30", label: "Events & Workshops" },
-              { icon: Trophy, number: "50", label: "Recognitions & Awards" },
+              { icon: Users, number: "600", label: "Affilites" },
+              { icon: Users, number: "60", label: "EBR & ABR's" },
+              { icon: Code, number: "10", label: "Events & Workshops" },
+              { icon: Trophy, number: "70", label: "Alumini" },
             ].map((stat, index) => (
               <div key={index} className="bg-background rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-105 border border-primary/20 reveal" style={{ animationDelay: `${index * 0.1}s` }}>
                 <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
@@ -410,21 +405,21 @@ export default function HomePage() {
             {[
               {
                 quote: "SRKR Coding Club has been instrumental in my growth as a developer. The workshops and hackathons provided me with practical experience that I couldn't get elsewhere.",
-                name: "Rahul Sharma",
-                title: "Software Developer at Google"
+                name: "Manoj Manfred",
+                // title: "Software Developer at Google"
               },
               {
                 quote: "The mentorship I received at SRKR Coding Club helped me land my dream job. The community is supportive and the learning resources are top-notch.",
-                name: "Priya Patel",
-                title: "Frontend Developer at Microsoft"
+                name: "Avinash",
+                // title: "Frontend Developer at Microsoft"
               },
               {
                 quote: "Participating in HackOverflow changed my perspective on problem-solving. The collaborative environment at SRKR Coding Club fosters innovation and creativity.",
-                name: "Amit Kumar",
-                title: "Data Scientist at Amazon"
+                name: "Bhuvaneswar",
+                // title: "Data Scientist at Amazon"
               }
             ].map((testimonial, index) => (
-              <div key={index} className="bg-background rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-105 border border-primary/20 reveal" style={{ animationDelay: `${index * 0.15}s` }}>
+              <div key={index} className="bg-background rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-105 border border-primary/20 reveal flex flex-col justify-around" style={{ animationDelay: `${index * 0.15}s` }}>
                 <Quote className="w-8 h-8 text-primary mb-4" />
                 <p className="text-muted-foreground mb-4 italic">"{testimonial.quote}"</p>
                 <div className="flex items-center gap-2">
@@ -461,13 +456,13 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center reveal" style={{ animationDelay: '0.3s' }}>
             <Link
               to="/joinus"
-              className="inline-flex items-center justify-center px-6 py-3 bg-accent text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center justify-center px-6 py-3 bg-accent text-primary-foreground rounded-lg font-medium hover:bg-accent/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               Join Us <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-accent hover:text-primary-foreground transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center justify-center px-6 py-3 border border-accent text-accent rounded-lg font-medium hover:bg-accent hover:text-primary-foreground transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               Contact Us
             </Link>
@@ -508,16 +503,14 @@ export default function HomePage() {
                 content: [
                   "srkrcodingclubofficial@gmail.com",
                   "davidrajukuppala@srkrec.ac.in",
-                  "events.srkrcodingclub@gmail.com"
                 ]
               },
               {
                 icon: Phone,
                 title: "Phone",
-                content:  [
+                content: [
                   "+91 8121702286",
-                  "contact.srkrcodingclub@gmail.com",
-                  "events.srkrcodingclub@gmail.com"
+                  "+91 9100579797",
                 ]
               }
             ].map((contact, index) => (
@@ -533,30 +526,6 @@ export default function HomePage() {
                 )}
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter */}
-      <section className="py-16 relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent"></div>
-        <div className="container mx-auto px-4 text-center">
-          <div className="reveal">
-            <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Subscribe to our newsletter to get the latest updates on events, workshops, and opportunities.
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto reveal" style={{ animationDelay: '0.2s' }}>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 border border-muted-foreground/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-            <button className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-              Subscribe
-            </button>
           </div>
         </div>
       </section>

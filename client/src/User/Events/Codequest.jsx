@@ -47,6 +47,11 @@ const Codequest = () => {
                             <div className="flex flex-wrap gap-4">
                                 <span className="font-bold text-accent">✨ Unlock skills • Track progress • Compete on leaderboard !</span>
                             </div>
+                            <div>
+                                <Button variant="formative" size="lg" disabled>
+                                    <a href="https://codequest.srkrcodingclub.in" target='_blank'>Level Up Now !</a>
+                                </Button>
+                            </div>
                         </div>
                         <div className="w-full max-w-2xl flex justify-center items-center bg-white rounded-lg shadow-xl">
                             <img
@@ -238,10 +243,10 @@ const Codequest = () => {
                         <p className="mb-8 text-lg text-muted-foreground">
                             Ready to sharpen your problem-solving skills and build coding consistency? Start your journey with daily challenges, leaderboards, and progress tracking!
                         </p>
-                        <Button size="lg" asChild>
-                            <Link href="https://forms.example.com/hackoverflow2024" target="_blank">
+                        <Button size="lg" variant="formative" disabled>
+                            <a href="https://codequest.srkrcodingclub.in" target="_blank">
                                 Level Up Now !
-                            </Link>
+                            </a>
                         </Button>
                     </div>
                 </div>

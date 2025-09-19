@@ -16,7 +16,7 @@ const hackoverflow24GalleryImages = [
     { id: 1, url: '/demo/Hackoverflow/photo1.jpg', alt: 'Teams' },
     { id: 2, url: '/demo/Hackoverflow/photo2.jpg', alt: 'Team' },
     { id: 3, url: '/demo/Hackoverflow/photo3.jpg', alt: 'Team' },
-    { id: 3, url: '/demo/Hackoverflow/photo4.jpg', alt: 'Team' },
+    { id: 4, url: '/demo/Hackoverflow/photo4.jpg', alt: 'Team' },
 ];
 
 // Sample data for different event editions. This data would typically be fetched from an API.
@@ -247,7 +247,7 @@ export default function PastHackothons() {
                                         const placeIconColor = index === 0 ? 'text-amber-500' : index === 1 ? 'text-gray-500' : 'text-orange-500';
 
                                         return (
-                                            <Card>
+                                            <Card key={place}>
                                                 <CardContent key={place} className="p-6">
                                                     <div className="flex items-center mb-3">
                                                         <Award className={`w-6 h-6 mr-2 ${placeIconColor}`} />
@@ -310,7 +310,7 @@ export default function PastHackothons() {
                                         ))}
                                     </div>
                                 </div>
-                                <style jsx>{`
+                                <style>{`
                                     @keyframes infinite-scroll {
                                         from {
                                         transform: translateX(0);
@@ -477,7 +477,7 @@ export default function PastHackothons() {
                                     </div>
                                 </div>
 
-                                <style jsx>{`
+                                <style>{`
                                     @keyframes sponsors-scroll {
                                     from {
                                         transform: translateX(0);

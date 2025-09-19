@@ -4,7 +4,8 @@ import { Card, CardContent } from '../../../Components/ui/card'
 import { Button } from '../../../Components/ui/button'
 import { Link } from "react-router-dom";
 import PastHackothons from './PastHackothons';
-import FAQs from './FAQs';
+import FAQs from '../../../Components/Faqs';
+import {faqs} from './FAQs'
 import { useEffect } from 'react';
 import ScrollToTopButton from '../../../Components/ScrollToTop';
 
@@ -19,6 +20,10 @@ const Hackoverflow = () => {
             behavior: 'smooth'
         });
     }, []);
+
+
+    
+
     return (
         <div>
             {/* Hero Section */}
@@ -109,7 +114,7 @@ const Hackoverflow = () => {
                                     //         🚀 Schedule Announcing Soon
                                     //     </span>
                                     // </div>
-                                    <div className=" bg-primary/10  flex h-40 flex-col items-center justify-center rounded-lg bg-muted/40">
+                                    <div className=" bg-primary/10  flex h-40 flex-col items-center justify-center rounded-lg">
                                         <Calendar className="mb-2 h-10 w-10  text-muted-foreground/50" />
                                         <span className=" text-primary text-xl font-semibold">Schedule Announcing Soon...</span>
                                     </div>
@@ -127,7 +132,7 @@ const Hackoverflow = () => {
                                     <h3 className="mb-4 text-2xl font-bold">Eligibility</h3>
                                 </div>
                                 {/* <h3 className="mb-2 text-xl font-bold">Eligibility</h3> */}
-                                <ul className="space-y-2 text-muted-foreground">
+                                <ul className="space-y-2 text-muted-foreground list-[disc] pl-10">
                                     <li>Open to all college students</li>
                                     <li>Teams of 1-6 participants</li>
                                     <li>Participants must bring their own laptops and necessary equipment</li>
@@ -164,7 +169,7 @@ const Hackoverflow = () => {
                                     //         Prizes & Rewards Announce Soon......
                                     //     </span>
                                     // </div>
-                                    <div className="mt-8 bg-primary/10  flex h-40 flex-col items-center justify-center rounded-lg bg-muted/40">
+                                    <div className="mt-8 bg-primary/10  flex h-40 flex-col items-center justify-center rounded-lg">
                                         <Trophy className="mb-2 h-10 w-10  text-muted-foreground/50" />
                                         <span className=" text-primary text-xl font-semibold">Prizes & Rewards Announce Soon......</span>
                                     </div>
@@ -280,7 +285,7 @@ const Hackoverflow = () => {
             </section>
 
             {/* FAQs Section */}
-            <FAQs />
+            <FAQs faqs={faqs}/>
 
             <ScrollToTopButton />
         </div>

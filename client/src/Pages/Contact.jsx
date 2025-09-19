@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '../Components/ui/button';
+import FAQs from '../Components/Faqs';
+import ScrollToTopButton from '../Components/ScrollToTop';
+import Title from '../Components/Title';
 
 // Location Pin Icon
 const LocationIcon = () => (
@@ -23,12 +26,6 @@ const EmailIcon = () => (
     </svg>
 );
 
-// Clock Icon
-const ClockIcon = () => (
-    <svg className="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 20 20">
-        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.414-1.414L11 10.586V6z" clipRule="evenodd" />
-    </svg>
-);
 
 // Club Logo
 const ClubLogo = () => (
@@ -61,6 +58,13 @@ export default function Contact() {
         subject: '',
         message: '',
     });
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }, []);
 
     const [openFAQ, setOpenFAQ] = useState(null);
 
@@ -99,7 +103,7 @@ export default function Contact() {
     return (
         <>
             {/* CSS Animations */}
-            <style jsx>{`
+            <style >{`
                 @keyframes spin-slow {
                     0% { transform: rotate(0deg); }
                     100% { transform: rotate(360deg); }
@@ -205,11 +209,12 @@ export default function Contact() {
             {/* Header Section */}
             <div className="bg-muted py-24 px-8">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h1 className="text-5xl font-bold gradient-text mb-3">Contact Us</h1>
+                    <Title value="Contact Us" />
                     <div className="w-28 h-1 bg-gradient-to-r from-accent to-orange-500 mx-auto rounded-full mb-4"></div>
 
                     <p className="text-lg text-muted-foreground leading-relaxed">
-                        Looking to share an idea, ask a question, or explore collaboration? Our team is always ready to listen and respond. Drop us a message—we’ll get back to you as soon as possible                    </p>
+                        Looking to share an idea, ask a question, or explore collaboration? Our team is always ready to listen and respond. Drop us a message—we’ll get back to you as soon as possible
+                    </p>
                 </div>
             </div>
 
@@ -239,15 +244,7 @@ export default function Contact() {
 
                         {/* Left Side: Image */}
                         <div className="relative min-h-[300px] lg:min-h-[450px] lg:col-span-1 overflow-hidden rounded-l-xl">
-                            {/* Background Image */}
-                            {/* <img
-                                src="/CC.jpeg"
-                                alt="Modern office interior"
-                                className="absolute inset-0 w-full h-full object-cover bg-gradient-to-r from-accent to-orange-500 "
-                                onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/800x600/e2e8f0/4a5568?text=Office+Image'; }}
-                            /> */}
                             <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-
                             {/* Info Card for MOBILE - visible on small screens */}
                             <div className="absolute top-1/2 left-5 -translate-y-1/2 bg-card/95 backdrop-blur-sm p-5 rounded-lg shadow-md w-64 border border-border lg:hidden">
                                 <div className="space-y-4">
@@ -275,18 +272,11 @@ export default function Contact() {
                                         <PhoneIcon />
                                         <div>
                                             <h3 className="font-bold text-card-foreground text-sm">Phone</h3>
-                                            <p className="text-xs text-muted-foreground mt-1">
-                                                8500216667
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-start space-x-2">
-                                        <ClockIcon />
-                                        <div>
-                                            <h3 className="font-bold text-card-foreground text-sm">Hours</h3>
-                                            <p className="text-xs text-muted-foreground mt-1">
-                                                9:00AM - 6:00 PM
-                                            </p>
+                                            <a href="tel:+91 9100579797">
+                                                <p className="text-xs text-muted-foreground mt-1">
+                                                    9100579797
+                                                </p>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -359,18 +349,11 @@ export default function Contact() {
                                 <PhoneIcon />
                                 <div>
                                     <h3 className="font-bold text-card-foreground text-sm">Phone</h3>
-                                    <p className="text-xs text-muted-foreground mt-1">
-                                        8500216667
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex items-start space-x-2">
-                                <ClockIcon />
-                                <div>
-                                    <h3 className="font-bold text-card-foreground text-sm">Hours</h3>
-                                    <p className="text-xs text-muted-foreground mt-1">
-                                        9:00AM - 6:00 PM
-                                    </p>
+                                    <a href="tel:+91 9100579797">
+                                        <p className="text-xs text-muted-foreground mt-1">
+                                            9100579797
+                                        </p>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -379,53 +362,8 @@ export default function Contact() {
             </div>
 
             {/* FAQ Section */}
-            <div className="bg-muted py-16">
-                <div className="max-w-4xl mx-auto mt-8 px-4 mb-20">
-                    <h2 className="text-2xl font-bold text-center mb-8 text-foreground">Frequently Asked Questions</h2>
-                    <div className="space-y-4">
-                        {faqData.map((faq, index) => (
-                            <div
-                                key={index}
-                                className="bg-card p-4 border border-border rounded-lg shadow-sm group"
-                                onMouseEnter={() => setOpenFAQ(index)}
-                                onMouseLeave={() => setOpenFAQ(null)}
-                            >
-                                <h3 className="text-base font-semibold mb-2 text-card-foreground group-hover:text-primary transition-colors duration-200 flex items-center justify-between">
-                                    {faq.question}
-                                    <span className={`transform transition-transform duration-200 ${openFAQ === index ? 'rotate-180' : ''}`}>
-                                        ▼
-                                    </span>
-                                </h3>
-                                <div className={`overflow-hidden transition-all duration-300 ${openFAQ === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                                    <p className="text-sm text-muted-foreground leading-relaxed pt-2">
-                                        {faq.answer}
-                                    </p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-            {/* Newsletter Section */}
-            <div className="bg-background py-16">
-                <div className="max-w-4xl mx-auto text-center px-6">
-                    <h2 className="text-3xl font-bold mb-4 text-foreground">Stay Updated</h2>
-                    <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                        Subscribe to our newsletter to get the latest updates on events, workshops, and opportunities.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                        <input
-                            type="email"
-                            placeholder="Enter your email"
-                            className="flex-1 p-3 bg-input rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-primary transition text-foreground"
-                        />
-                        <button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-md font-semibold transition-colors">
-                            Subscribe
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <FAQs faqs={faqData} />
+            <ScrollToTopButton />
         </>
     );
 }

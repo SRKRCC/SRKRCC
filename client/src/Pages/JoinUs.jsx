@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Check, Upload, Mail, Phone, MapPin, Github, Linkedin, Twitter, Instagram, Sun, Moon, Calendar, Users, BookOpen, UserCheck, GitBranch, Award } from 'lucide-react';
-
+import ScrollToTopButton from "../Components/ScrollToTop"
+import { Button } from '../Components/ui/button';
+import { Link } from 'react-router-dom';
 export default function Registrations() {
     const [formData, setFormData] = useState({
         firstName: '',
@@ -25,6 +27,13 @@ export default function Registrations() {
             setIsDarkMode(true);
             document.documentElement.classList.add('dark');
         }
+    }, []);
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }, []);
 
 
@@ -61,8 +70,8 @@ export default function Registrations() {
                     Join Our Community
                 </div>
                 <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-                    Become an
-                    <span className="block bg-accent dark:from-[#FF8C00] to-red-500 bg-clip-text text-transparent">
+                    Become an &nbsp;
+                    <span className="bg-accent dark:from-[#FF8C00] to-red-500 bg-clip-text text-transparent">
                         Affiliate
                     </span>
                 </h1>
@@ -165,16 +174,16 @@ export default function Registrations() {
                 <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-12">
                         <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Ready to Join?</h2>
-                        <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-red-500 mx-auto rounded-full mb-6"></div>
+                        <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-red-500 mx-auto rounded-sm mb-6"></div>
 
                         <p className="text-lg text-gray-600 dark:text-gray-300">
                             Fill out the form below to start your journey with SRKR Coding Club
                         </p>
                     </div>
 
-                    <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-200 dark:border-gray-700">
+                    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-2xl p-8 md:p-12 border border-gray-200 dark:border-gray-700">
                         <form onSubmit={handleSubmit} className="space-y-8">
-                            <div className="grid md:grid-cols-2 gap-8">
+                            <div className="grid md:grid-cols-1 gap-8">
                                 <div>
                                     <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
                                         First Name
@@ -186,22 +195,7 @@ export default function Registrations() {
                                         value={formData.firstName}
                                         onChange={handleInputChange}
                                         placeholder="Enter your first name"
-                                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFA500] focus:border-transparent transition-all duration-200"
-                                        required
-                                    />
-                                </div>
-                                <div>
-                                    <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                                        Last Name
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="lastName"
-                                        name="lastName"
-                                        value={formData.lastName}
-                                        onChange={handleInputChange}
-                                        placeholder="Enter your last name"
-                                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFA500] focus:border-transparent transition-all duration-200"
+                                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFA500] focus:border-transparent transition-all duration-200"
                                         required
                                     />
                                 </div>
@@ -219,10 +213,11 @@ export default function Registrations() {
                                         value={formData.email}
                                         onChange={handleInputChange}
                                         placeholder="Enter your email"
-                                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFA500] focus:border-transparent transition-all duration-200"
+                                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFA500] focus:border-transparent transition-all duration-200"
                                         required
                                     />
                                 </div>
+
                                 <div>
                                     <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
                                         Phone Number
@@ -234,50 +229,11 @@ export default function Registrations() {
                                         value={formData.phone}
                                         onChange={handleInputChange}
                                         placeholder="Enter your phone number"
-                                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFA500] focus:border-transparent transition-all duration-200"
+                                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFA500] focus:border-transparent transition-all duration-200"
                                         required
                                     />
                                 </div>
-                            </div>
 
-                            <div className="grid md:grid-cols-2 gap-8">
-                                <div>
-                                    <label htmlFor="college" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                                        College/Institution
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="college"
-                                        name="college"
-                                        value={formData.college}
-                                        onChange={handleInputChange}
-                                        placeholder="Enter your college name"
-                                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFA500] focus:border-transparent transition-all duration-200"
-                                        required
-                                    />
-                                </div>
-                                <div>
-                                    <label htmlFor="department" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                                        Department
-                                    </label>
-                                    <select
-                                        id="department"
-                                        name="department"
-                                        value={formData.department}
-                                        onChange={handleInputChange}
-                                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#FFA500] focus:border-transparent transition-all duration-200"
-                                        required
-                                    >
-                                        <option value="">Select your department</option>
-                                        <option value="cse">Computer Science & Engineering</option>
-                                        <option value="ece">Electronics & Communication</option>
-                                        <option value="eee">Electrical & Electronics</option>
-                                        <option value="mech">Mechanical Engineering</option>
-                                        <option value="civil">Civil Engineering</option>
-                                        <option value="it">Information Technology</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
                             </div>
 
                             <div className="grid md:grid-cols-2 gap-8">
@@ -290,7 +246,7 @@ export default function Registrations() {
                                         name="yearOfStudy"
                                         value={formData.yearOfStudy}
                                         onChange={handleInputChange}
-                                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#FFA500] focus:border-transparent transition-all duration-200"
+                                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#FFA500] focus:border-transparent transition-all duration-200"
                                         required
                                     >
                                         <option value="">Select your year</option>
@@ -302,25 +258,24 @@ export default function Registrations() {
                                     </select>
                                 </div>
                                 <div>
-                                    <label htmlFor="technicalSkills" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                                        Primary Technical Skill
+                                    <label htmlFor="department" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                                        Department
                                     </label>
                                     <select
-                                        id="technicalSkills"
-                                        name="technicalSkills"
-                                        value={formData.technicalSkills}
+                                        id="department"
+                                        name="department"
+                                        value={formData.department}
                                         onChange={handleInputChange}
-                                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#FFA500] focus:border-transparent transition-all duration-200"
+                                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#FFA500] focus:border-transparent transition-all duration-200"
                                         required
                                     >
-                                        <option value="">Select your primary skill</option>
-                                        <option value="javascript">JavaScript</option>
-                                        <option value="python">Python</option>
-                                        <option value="java">Java</option>
-                                        <option value="cpp">C++</option>
-                                        <option value="web">Web Development</option>
-                                        <option value="mobile">Mobile Development</option>
-                                        <option value="ai-ml">AI/ML</option>
+                                        <option value="">Select your department</option>
+                                        <option value="cse">Computer Science & Engineering</option>
+                                        <option value="ece">Electronics & Communication</option>
+                                        <option value="eee">Electrical & Electronics</option>
+                                        <option value="mech">Mechanical Engineering</option>
+                                        <option value="civil">Civil Engineering</option>
+                                        <option value="it">Information Technology</option>
                                         <option value="other">Other</option>
                                     </select>
                                 </div>
@@ -337,85 +292,18 @@ export default function Registrations() {
                                     onChange={handleInputChange}
                                     rows={4}
                                     placeholder="Tell us why you want to join and what you hope to achieve"
-                                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFA500] focus:border-transparent transition-all duration-200"
+                                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFA500] focus:border-transparent transition-all duration-200"
                                     required
                                 />
                             </div>
 
-                            <div>
-                                <label htmlFor="resume" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                                    Upload Resume (Optional)
-                                </label>
-                                <div className="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-xl bg-gray-50 dark:bg-gray-700 hover:border-[#FFA500] dark:hover:border-[#FFA500] transition-colors duration-200">
-                                    <div className="space-y-2 text-center">
-                                        <Upload className="mx-auto h-12 w-12 text-gray-400 dark:text-gray-500" />
-                                        <div className="flex text-sm text-gray-600 dark:text-gray-400">
-                                            <label
-                                                htmlFor="resume"
-                                                className="relative cursor-pointer bg-white dark:bg-gray-800 rounded-md font-medium text-[#FFA500] dark:text-[#FFA500] hover:text-[#FFA500] dark:hover:text-[#FFA500] focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#FFA500]"
-                                            >
-                                                <span className='p-2'>Choose File</span>
-                                                <input
-                                                    id="resume"
-                                                    name="resume"
-                                                    type="file"
-                                                    className="sr-only"
-                                                    accept=".pdf,.doc,.docx"
-                                                    onChange={(e) => handleFileChange(e, 'resume')}
-                                                />
-                                            </label>
-                                        </div>
-                                        <p className="text-xs text-gray-500 dark:text-gray-400">
-                                            {formData.resume ? formData.resume.name : 'No file chosen'}
-                                        </p>
-                                        <p className="text-xs text-gray-500 dark:text-gray-400">
-                                            Accepted formats: PDF, DOCX (Max size: 2MB)
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div>
-                                <label htmlFor="additionalDocs" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                                    Upload Additional Documents (Optional)
-                                </label>
-                                <div className="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-xl bg-gray-50 dark:bg-gray-700 hover:border-[#FFA500] dark:hover:border-[#FFA500] transition-colors duration-200">
-                                    <div className="space-y-2 text-center">
-                                        <Upload className="mx-auto h-12 w-12 text-gray-400 dark:text-gray-500" />
-                                        <div className="flex text-sm text-gray-600 dark:text-gray-400">
-                                            <label
-                                                htmlFor="additionalDocs"
-                                                className="relative cursor-pointer bg-white dark:bg-gray-800 rounded-md font-medium text-[#FFA500] dark:text-[#FFA500] hover:text-[#FFA500] dark:hover:text-[#FFA500] focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#FFA500]"
-                                            >
-                                                <span className='p-2'>Choose Files</span>
-                                                <input
-                                                    id="additionalDocs"
-                                                    name="additionalDocs"
-                                                    type="file"
-                                                    className="sr-only"
-                                                    multiple
-                                                    accept=".pdf,.doc,.docx,.jpg,.png"
-                                                    onChange={(e) => handleFileChange(e, 'additionalDocs')}
-                                                />
-                                            </label>
-                                        </div>
-                                        <p className="text-xs text-gray-500 dark:text-gray-400">
-                                            {formData.additionalDocs ? formData.additionalDocs.name : 'No files chosen'}
-                                        </p>
-                                        <p className="text-xs text-gray-500 dark:text-gray-400">
-                                            Upload certificates, project reports, or any other relevant documents.
-                                            Accepted formats: PDF, DOCX, JPG, PNG (Max size: 5MB)
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <button
-                                type="submit"
-                                className="w-full bg-accent/80 text-white py-4 px-6 rounded-xl hover:bg-accent dark:hover:from-[#FF8C00] hover:to-red-600 focus:outline-none focus:ring-2 focus:ring-[#FFA500] dark:focus:ring-[#FF8C00] focus:ring-offset-2 font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
-                            >
-                                Submit Application
-                            </button>
+                            <div className='flex flex-col'>
+                                <Button variant="formative">
+                                    <Link>Submit Application</Link>
+                                </Button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -432,19 +320,20 @@ export default function Registrations() {
                     <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
                         <div className="flex items-center bg-white dark:bg-gray-800 px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-200">
                             <Mail className="w-5 h-5 text-[#FFA500] dark:text-[#FF8C00] mr-3" />
-                            <a href="mailto:affiliates@srkrcodingclub.org" className="text-[#FFA500] dark:text-[#FF8C00] hover:text-[#FFA500] dark:hover:text-[#FF8C00] font-medium">
+                            <a href="mailto:srkrcodingclubofficial@gmail.com" className="text-[#FFA500] dark:text-[#FF8C00] hover:text-[#FFA500] dark:hover:text-[#FF8C00] font-medium">
                                 srkrcodingclubofficial@gmail.com
                             </a>
                         </div>
                         <div className="flex items-center bg-white dark:bg-gray-800 px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-200">
                             <Phone className="w-5 h-5 text-[#FFA500] dark:text-[#FF8C00] mr-3" />
-                            <a href="tel:+911234567890" className="text-[#FFA500] dark:text-[#FF8C00] hover:text-[#FFA500] dark:hover:text-[#FF8C00] font-medium">
-                                +91 1234567890
+                            <a href="tel:+91 9100579797" className="text-[#FFA500] dark:text-[#FF8C00] hover:text-[#FFA500] dark:hover:text-[#FF8C00] font-medium">
+                                +91  9100579797
                             </a>
                         </div>
                     </div>
                 </div>
             </section >
+            <ScrollToTopButton />
         </div >
     );
 }

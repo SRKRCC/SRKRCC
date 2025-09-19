@@ -1,7 +1,17 @@
 import React, { useEffect } from 'react';
 import { Download, Users, Award, BookOpen, Code, Zap, Gift, Trophy, Star, Ticket, Codepen, Lightbulb, TrendingUp } from 'lucide-react';
+import Title from '../Components/Title';
+import ScrollToTopButton from '../Components/ScrollToTop';
 
 const AffiliatesPage = () => {
+
+  useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }, []);
+
   const affiliateStats = {
     '1st Year': 145,
     '2nd Year': 128,
@@ -114,10 +124,8 @@ const AffiliatesPage = () => {
       <div className="px-4 sm:px-6 md:px-8 py-20 sm:py-12 md:py-16">
         {/* Header */}
         <header className="text-center my-8 sm:mb-8">
-          <h1 className="text-3xl sm:text-2xl md:text-5xl font-bold mb-3 sm:mb-4 gradient-text">
-            Affiliates
-          </h1>
-          <div className="w-28 h-1 bg-gradient-to-r from-accent to-orange-500 mx-auto rounded-full mb-4"></div>
+          <Title value="Affiliates"/>
+          <div className="w-28 h-1 bg-gradient-to-r from-orange-500 to-red-500 mx-auto rounded-full mb-4"></div>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Affiliates are an essential part of SRKRCodingClub’s growth and success, contributing to events, ideas, and community engagement. Here, you can explore year-wise statistics, download affiliate data, and discover the benefits that come with being part of our dynamic and collaborative network.          </p>
         </header>
@@ -126,12 +134,10 @@ const AffiliatesPage = () => {
       <div className="px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-20 bg-card/40" >
         {/* Who Are Affiliates Section */}
         <section className="rounded-lg mt-6 sm:mt-8 mb-6 sm:mb-8 ">
-          <h2 className="text-xl sm:text-2xl md:text-5xl font-bold gradient-text mb-4 sm:mb-6 flex items-center gap-3 justify-center">
-            {/* <Users className="w-6 h-6 sm:w-8 sm:h-8 text-black" /> */}
-            Who Are Affiliates?
-            
-          </h2>
-          <div className="w-28 h-1 bg-gradient-to-r from-accent to-orange-500 mx-auto rounded-full mb-4"></div>
+          <div className='flex justify-center'>
+            <Title value="Who Are Affiliates?"/>
+          </div>
+          <div className="w-28 h-1 bg-gradient-to-r from-orange-500 to-red-500 mx-auto rounded-full mb-4"></div>
           
           <div className="text-muted-foreground text-sm sm:text-base md:text-lg space-y-6 px-8 sm:px-16">
             <p>
@@ -149,9 +155,7 @@ const AffiliatesPage = () => {
       <div className="px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 sm:py-12 md:py-24 bg-muted/50">
         {/* Statistics Cards */}
         <section className="mb-6 sm:mb-8">
-          <h2 className="text-xl sm:text-2xl md:text-5xl font-bold text-foreground mb-6 sm:mb-6 text-center ">
-            Affiliate Statistics
-          </h2>
+          <Title value="Affiliate Statistics"/>
           <div className="w-28 h-1 bg-gradient-to-r from-accent to-orange-500 mx-auto rounded-full mb-12"></div>
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {Object.entries(affiliateStats).map(([year, count]) => (
@@ -170,7 +174,7 @@ const AffiliatesPage = () => {
           <div className="text-center mb-4 sm:mb-6">
             <h2 className="text-xl sm:text-2xl md:text-5xl font-bold text-foreground mb-6 flex justify-center items-center gap-3">
               <Download className="w-7 h-7 sm:w-8 sm:h-8 text-accent" />
-              Year-wise Data Downloads
+              <Title value="Year-wise Data Downloads"/>
             </h2>
             <div className="w-28 h-1 bg-gradient-to-r from-accent to-orange-500 mx-auto rounded-full mb-6"></div>
             <p className="text-muted-foreground text-sm sm:text-base">
@@ -206,7 +210,7 @@ const AffiliatesPage = () => {
         <section className="rounded-lg mt-6 sm:mt-8 ">
           <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-foreground mb-8 sm:mb-4 text-center flex items-center justify-center gap-3">
             {/* <Gift className="w-6 h-6 sm:w-8 sm:h-8 text-accent" /> */}
-            What You Get as an SCC Affiliate
+            <Title value="What You Get as an SCC Affiliate"/>
           </h2>
            <div className="w-28 h-1 bg-gradient-to-r from-accent to-orange-500 mx-auto rounded-full mb-8"></div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 ">
@@ -232,6 +236,7 @@ const AffiliatesPage = () => {
           </div>
         </section>
       </div>
+      <ScrollToTopButton/>
     </div>
   );
 };

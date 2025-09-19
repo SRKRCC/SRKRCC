@@ -4,7 +4,8 @@ import { Card, CardContent } from '../../../Components/ui/card'
 import { Button } from '../../../Components/ui/button'
 import { Link } from "react-router-dom";
 import PastIconCoderz from './PastIconcoderz';
-import FAQs from './FAQs';
+import FAQs from '../../../Components/Faqs';
+import { faqs }from "./FAQs"
 import ScrollToTopButton from '../../../Components/ScrollToTop';
 import { useEffect } from 'react';
 
@@ -17,6 +18,8 @@ const IconCoderz = () => {
             behavior: 'smooth'
         });
     }, []);
+
+    
     return (
         <div>
             {/* Hero Section */}
@@ -96,7 +99,7 @@ const IconCoderz = () => {
                                         <strong>Day 2 (May 11):</strong> Final Round, Live Scoreboard, Awards Ceremony
                                     </li>
                                 </ul>) : (
-                                    <div className=" bg-primary/10  flex h-40 flex-col items-center justify-center rounded-lg bg-muted/40">
+                                    <div className=" bg-primary/10  flex h-40 flex-col items-center justify-center rounded-lg">
                                         <Calendar className="mb-2 h-10 w-10  text-muted-foreground/50" />
                                         <span className=" text-primary text-xl font-semibold">Schedule Announcing Soon....</span>
                                     </div>
@@ -144,7 +147,7 @@ const IconCoderz = () => {
                                     </li>
                                 </ul>
                                 ):(
-                                    <div className=" bg-primary/10  flex h-40 flex-col items-center justify-center rounded-lg bg-muted/40">
+                                    <div className=" bg-primary/10  flex h-40 flex-col items-center justify-center rounded-lg">
                                         <Trophy className="mb-2 h-10 w-10  text-muted-foreground/50" />
                                         <span className=" text-primary text-xl font-semibold">Prizes & Rewards Announce Soon......</span>
                                     </div>
@@ -177,7 +180,7 @@ const IconCoderz = () => {
             </section>
 
             {/* FAQs Section */}
-            <FAQs />
+            <FAQs faqs={faqs} />
 
             <ScrollToTopButton />
         </div>

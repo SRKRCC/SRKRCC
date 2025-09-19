@@ -15,6 +15,8 @@ import {
   User
 } from "lucide-react"
 import { Card, CardContent } from "../Components/ui/card"
+import Title from "../Components/Title"
+import ScrollToTopButton from "../Components/ScrollToTop"
 
 const Alumni = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -23,7 +25,14 @@ const Alumni = () => {
 
   useEffect(() => {
     setIsVisible(true)
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, []);
 
   const alumniData = [
     {
@@ -218,10 +227,8 @@ const Alumni = () => {
       <section className="bg-muted/50 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-4 gradient-text text-4xl font-bold tracking-tight md:text-5xl">
-              Our Alumni
-            </h1>
-            <div className="w-28 h-1 bg-gradient-to-r from-primary to-orange-500 mx-auto rounded-full mb-4"></div>
+            <Title value="Our Alumni" />
+            <div className="w-28 h-1 bg-gradient-to-r from-orange-500 to-red-500 mx-auto rounded-full mb-4"></div>
             <p className="mb-8 text-lg text-muted-foreground">
               Our alumni are the pride of  <span className="text-primary">SRKR </span><span className="text-accent font-semibold">&lt;CODING CLUB&gt;</span>. They
               are the brilliant minds who have graduated from our college and are now making significant
@@ -236,8 +243,8 @@ const Alumni = () => {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">Alumni Gallery</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary to-orange-500 mx-auto rounded-full mb-4"></div>
+            <Title value="Alumni Gallery" />
+            <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-500 mx-auto rounded-full mb-4"></div>
 
             <p className="text-muted-foreground text-xl">Celebrating our graduates through the years</p>
           </div>
@@ -347,16 +354,15 @@ const Alumni = () => {
               <CardContent className="p-6">
 
                 <p className="mb-4 text-muted-foreground">
-                  HackOverflow was an incredible experience! The mentorship, resources, and collaborative environment
-                  helped our team build something we're truly proud of. Can't wait for next year!
+                  The mentorship I received at SRKR Coding Club helped me land my dream job. The community is supportive and the learning resources are top-notch.
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="h-10 w-10 overflow-hidden rounded-full bg-muted flex items-center justify-center">
                     <User className="h-6 w-6 text-gray-500" />
                   </div>
                   <div>
-                    <p className="font-medium">Rahul Sharma</p>
-                    <p className="text-sm text-muted-foreground">1st Place Winner, HackOverflow 2023</p>
+                    <p className="font-medium">Jagadesh Kumar</p>
+                    {/* <p className="text-sm text-muted-foreground">1st Place Winner, HackOverflow 2023</p> */}
                   </div>
                 </div>
               </CardContent>
@@ -366,35 +372,34 @@ const Alumni = () => {
               <CardContent className="p-6">
 
                 <p className="mb-4 text-muted-foreground">
-                  As a first-time hackathon participant, I was nervous, but the organizers created such a welcoming
-                  environment. I learned so much and made great connections!
+                  SRKR Coding Club has been instrumental in my growth as a developer. The workshops and hackathons provided me with practical experience that I couldn't get elsewhere.
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="h-10 w-10 overflow-hidden rounded-full bg-muted flex items-center justify-center">
                     <User className="h-6 w-6 text-gray-500" />
                   </div>
                   <div>
-                    <p className="font-medium">Priya Patel</p>
-                    <p className="text-sm text-muted-foreground">Participant, HackOverflow 2023</p>
+                    <p className="font-medium">S.Gopala Varma</p>
+                    {/* <p className="text-sm text-muted-foreground">Participant, HackOverflow 2023</p> */}
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             <Card>
-              <CardContent className="p-6">
-
+              <CardContent className="pt-6 flex flex-col justify-end">
                 <p className="mb-4 text-muted-foreground">
-                  The quality of projects at HackOverflow was outstanding. The event was well-organized, and the
-                  workshops provided valuable insights for all participants.
+                  Participating in HackOverflow changed my perspective on problem-solving.
+                  The collaborative environment at SRKR Coding Club fosters innovation and creativity.
                 </p>
+
                 <div className="flex items-center gap-3">
                   <div className="h-10 w-10 overflow-hidden rounded-full bg-muted flex items-center justify-center">
                     <User className="h-6 w-6 text-gray-500" />
                   </div>
                   <div>
-                    <p className="font-medium">Dr. Suresh Kumar</p>
-                    <p className="text-sm text-muted-foreground">Judge, HackOverflow 2023</p>
+                    <p className="font-medium">Narendra Varma</p>
+                    {/* <p className="text-sm text-muted-foreground">Judge, HackOverflow 2023</p> */}
                   </div>
                 </div>
               </CardContent>
@@ -404,6 +409,8 @@ const Alumni = () => {
 
         </div>
       </section>
+
+      <ScrollToTopButton/>
     </div>
   )
 }

@@ -1,12 +1,4 @@
-import React from 'react'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../../../Components/ui/accordion'
-import { Link } from 'react-router-dom'
-import { Button } from '../../../Components/ui/button'
-
-
-
-const FAQs = () => {
-    const faqs = [
+export const faqs = [
         {
             question: "Who can participate in IconCoderZ?",
             answer:
@@ -36,36 +28,3 @@ const FAQs = () => {
                 "Yes, IconCoderZ has both in-person and online participation options. You can choose the mode that works best for you during registration.",
         },
     ]
-    return (
-        <div>
-            {/* FAQs Section */}
-            <section className="bg-muted/50 py-16 md:py-24">
-                <div className="container mx-auto px-4">
-                    <div className="mx-auto max-w-3xl">
-                        <h2 className="mb-12 text-center text-3xl font-bold tracking-tight md:text-4xl">
-                            Frequently Asked Questions
-                        </h2>
-
-                        <Accordion type="single" collapsible className="w-full">
-                            {faqs.map((faq, index) => (
-                                <AccordionItem key={index} value={`item-${index}`}>
-                                    <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
-                                    <AccordionContent>{faq.answer}</AccordionContent>
-                                </AccordionItem>
-                            ))}
-                        </Accordion>
-
-                        <div className="mt-8 text-center">
-                            <p className="text-muted-foreground">Still have questions? Feel free to reach out to us.</p>
-                            <Button variant="link" asChild>
-                                <Link href="mailto:hackoverflow@srkrcodingclub.org">hackoverflow@srkrcodingclub.org</Link>
-                            </Button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    )
-}
-
-export default FAQs

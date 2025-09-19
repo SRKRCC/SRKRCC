@@ -1,5 +1,8 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { Button } from "../Components/ui/button.jsx"
+import { Link } from "react-router-dom";
+import ScrollToTopButton from "../Components/ScrollToTop.jsx";
 
 // Mock data
 const mockOngoingEvents = [
@@ -119,8 +122,8 @@ const mockFlagshipEvents = [
 // Ongoing Events Section with horizontal layout
 const OngoingEventsSection = ({ events }) => {
     return (
-        <section className="w-full bg-gradient-to-t from-primary/15 to-transparent">
-            <div className="w-full h-72 overflow-hidden flex p-10 ">
+        <section className="w-full bg-gradient-to-t from-accent/30 to-transparent">
+            <div className="w-full h-72 overflow-hidden flex p-10">
                 <div className="absolute top-64 right-1/4 w-8 h-8 bg-accent/10 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
 
                 <div className="w-1/3 h-68 relative flex items-center justify-center p-2">
@@ -146,9 +149,9 @@ const OngoingEventsSection = ({ events }) => {
                     </div>
                 </div>
                 <div className="w-1/3 h-64 flex items-center justify-center p-4">
-                    <button className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded">
+                    <Button variant="default">
                         Coming Soon ....
-                    </button>
+                    </Button>
                 </div>
             </div>
         </section>
@@ -250,7 +253,7 @@ const AllEventsSection = ({ events }) => {
                                             className="w-full h-64"
                                         />
                                         {/* Event Status Badge */}
-                                        <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                        <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
                                             {event.status || "Ongoing"}
                                         </div>
                                     </div>
@@ -275,10 +278,9 @@ const AllEventsSection = ({ events }) => {
                                         {/* <p className="text-foreground mt-2 text-sm">
                                             {event.description}
                                         </p> */}
-                                        <button className="mt-3 bg-accent text-white hover:bg-accent/90 h-9 px-8 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0">
-                                            {" "}
-                                            View Details
-                                        </button>
+                                        <Button variant="formative" className="mt-4">
+                                            <Link to={`/events/${event.title.toLowerCase()}`}> View Details</Link>
+                                        </Button>
                                     </div>
                                 </div>
                             </div>
@@ -286,18 +288,22 @@ const AllEventsSection = ({ events }) => {
                     </div>
 
                     {/* Scroll Indicators */}
+                    {/* Scroll Indicators */}
                     <div className="flex justify-center mt-8 gap-3">
                         {Array.from({
-                            length: Math.ceil(
-                                events.length /
-                                Math.floor(scrollContainerRef.current?.offsetWidth / 384)
+                            length: Math.max(
+                                1,
+                                Math.ceil(
+                                    events.length /
+                                    Math.max(1, Math.floor((scrollContainerRef.current?.offsetWidth || 0) / 384))
+                                )
                             ),
                         }).map((_, index) => (
                             <button
                                 key={index}
                                 onClick={() => {
                                     setCurrentIndex(index);
-                                    scrollContainerRef.current.scrollTo({
+                                    scrollContainerRef.current?.scrollTo({
                                         left: index * 384,
                                         behavior: "smooth",
                                     });
@@ -309,6 +315,7 @@ const AllEventsSection = ({ events }) => {
                             ></button>
                         ))}
                     </div>
+
                 </div>
             </div>
         </section>
@@ -357,12 +364,9 @@ const FlagshipEventsSection = ({ events }) => {
                                         </li>
                                     )}
                                 </ul>
-                                <a
-                                    href={`/events/${event.title.toLowerCase()}`}
-                                    className="bg-accent text-white hover:bg-accent/90 h-9 px-8 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0"
-                                >
-                                    Learn More
-                                </a>
+                                <Button variant="formative" size="lg">
+                                    <Link to={`/events/${event.title.toLowerCase()}`} > Learn More </Link>
+                                </Button>
                             </div>
                             <div className={index % 2 === 0 ? "order-1 md:order-2" : ""}>
                                 <img
@@ -370,7 +374,7 @@ const FlagshipEventsSection = ({ events }) => {
                                     alt={event.title}
                                     width="600"
                                     height="400"
-                                    className="roundedobject-cover w-full h-100 border rounded-lg border-accent"
+                                    className="rounded-2xl object-cover w-full h-100 border shadow-2xl"
                                 />
                             </div>
                         </div>
@@ -386,7 +390,12 @@ const Events = () => {
     const [ongoingEvents] = useState(mockOngoingEvents);
     const [allEvents] = useState(mockAllEvents);
     const [flagshipEvents] = useState(mockFlagshipEvents);
-
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }, []);
     return (
         <div className="min-h-screen">
 
@@ -421,27 +430,7 @@ const Events = () => {
 
             <FlagshipEventsSection events={flagshipEvents} />
 
-            {/* <section className="bg-muted py-16 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-foregroun mb-4">
-            Want to Stay Updated?
-          </h2>
-          <p className="text-foreground text-lg mb-8 max-w-2xl mx-auto">
-            Subscribe to our newsletter and never miss an exciting event,
-            workshop, or competition!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 bg-muted border border-foreground text-foreground placeholder-muted-foreground focus:outline"
-            />
-            <button className="bg-accent text-white hover:bg-accent/90 h-12 px-8 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0">
-              Subscribe
-            </button>
-          </div>
-        </div>
-      </section> */}
+            <ScrollToTopButton />
         </div>
     );
 };
