@@ -10,8 +10,8 @@ const mockOngoingEvents = [
         id: 1,
         title: "HackOverFlow 2K25",
         description: "24-hour hackathon to build innovative solutions.",
-        date: "Reveal Soon...",
-        poster: "/demo/EventPosters/Hackoverflow2k24.png",
+        date: "13th December, 2025",
+        poster: "hackoverflow2025.webp",
     },
 ];
 
@@ -26,7 +26,7 @@ const mockAllEvents = [
         location: "SRKR Engineering College, Bhimavaram.",
         status: "upcoming",
         category: "Hackathon",
-        poster: "/demo/EventPosters/Hackoverflow2k24.png",
+        poster: "hackoverflow2025.webp",
     },
     {
         id: 2,
@@ -122,9 +122,9 @@ const mockFlagshipEvents = [
 // Ongoing Events Section with horizontal layout
 const OngoingEventsSection = ({ events }) => {
     return (
-        <section className="w-full bg-gradient-to-t from-accent/30 to-transparent">
+        <section className="w-full bg-gradient-to-t from-accent/30 to-transparent relative">
+            <div className="absolute top-64 right-1/4 w-8 h-8 bg-accent/10 rounded-full animate-float pointer-events-none" style={{ animationDelay: '1s' }}></div>
             <div className="w-full h-72 overflow-hidden flex p-10">
-                <div className="absolute top-64 right-1/4 w-8 h-8 bg-accent/10 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
 
                 <div className="w-1/3 h-68 relative flex items-center justify-center p-2">
                     <img
@@ -149,9 +149,11 @@ const OngoingEventsSection = ({ events }) => {
                     </div>
                 </div>
                 <div className="w-1/3 h-64 flex items-center justify-center p-4">
-                    <Button variant="default">
-                        Coming Soon ....
-                    </Button>
+                    <a href="https://hackoverflow.srkrcodingclub.in" target="_blank" rel="noopener noreferrer">
+                        <Button variant="default">
+                            Register Now
+                        </Button>
+                    </a>
                 </div>
             </div>
         </section>
@@ -278,9 +280,9 @@ const AllEventsSection = ({ events }) => {
                                         {/* <p className="text-foreground mt-2 text-sm">
                                             {event.description}
                                         </p> */}
-                                        <Button variant="formative" className="mt-4">
+                                        {/* <Button variant="formative" className="mt-4">
                                             <Link to={`/events/${event.title.toLowerCase()}`}> View Details</Link>
-                                        </Button>
+                                        </Button> */}
                                     </div>
                                 </div>
                             </div>

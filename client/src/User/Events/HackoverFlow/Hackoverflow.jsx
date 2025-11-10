@@ -10,9 +10,9 @@ import { useEffect } from 'react';
 import ScrollToTopButton from '../../../Components/ScrollToTop';
 
 
-const schedule = null;
-const prizes = null;
-const theme = null;
+const schedule = true;
+const prizes = true;
+const theme = true;
 const Hackoverflow = () => {
     useEffect(() => {
         window.scrollTo({
@@ -39,7 +39,7 @@ const Hackoverflow = () => {
                             <div className="space-y-4 rounded-lg bg-muted/80 p-4">
                                 <div className="flex items-center gap-2 text-sm">
                                     <Calendar className="h-5 w-5 text-primary" />
-                                    <span>October , 2025  <i>[ Tentative ]</i></span>
+                                    <span>December 19, 2025</span>
                                 </div>
                                 <div className="flex items-center gap-2 text-sm">
                                     <MapPin className="h-5 w-5 text-primary" />
@@ -47,21 +47,18 @@ const Hackoverflow = () => {
                                 </div>
                                 <div className="flex items-center gap-2 text-sm">
                                     <Users className="h-5 w-5 text-primary" />
-                                    <span>Teams of 1-6 participants</span>
+                                    <span>Teams of 4-6 participants</span>
                                 </div>
                             </div>
                             <div className="flex flex-wrap gap-4">
                                 <Button size="lg" asChild>
-                                    <Link href="#register">Unfolding Soon…</Link>
-                                </Button>
-                                <Button variant="outline" size="lg" asChild>
-                                    <Link href="#details">Learn More</Link>
+                                    <a href="https://hackoverflow.srkrcodingclub.in" target="_blank" rel="noopener noreferrer">Register Now</a>
                                 </Button>
                             </div>
                         </div>
                         <div className="w-full max-w-2xl flex justify-center items-center bg-white rounded-lg shadow-xl">
                             <img
-                                src="/demo/Hackoverflow/cover.jpg"
+                                src="/hackoverflow2025.webp"
                                 alt="HackOverflow"
                                 width={600}
                                 height={380}
@@ -99,13 +96,10 @@ const Hackoverflow = () => {
                                 {schedule ? (
                                     <ul className="space-y-2 text-muted-foreground">
                                         <li>
-                                            <strong>Day 1 (April 15):</strong> Registration, Opening Ceremony, Team Formation, Hacking Begins
+                                            <strong>December 19, 2025:</strong> Registration, Opening Ceremony, Hacking Begins, Presentations, Judging, Awards Ceremony
                                         </li>
                                         <li>
-                                            <strong>Day 2 (April 16):</strong> Continued Hacking, Mentorship Sessions, Workshops
-                                        </li>
-                                        <li>
-                                            <strong>Day 3 (April 17):</strong> Project Submission, Presentations, Judging, Awards Ceremony
+                                            <strong>Last Date to Register:</strong> December 13, 2025
                                         </li>
                                     </ul>
                                 ) : (
@@ -134,9 +128,8 @@ const Hackoverflow = () => {
                                 {/* <h3 className="mb-2 text-xl font-bold">Eligibility</h3> */}
                                 <ul className="space-y-2 text-muted-foreground list-[disc] pl-10">
                                     <li>Open to all college students</li>
-                                    <li>Teams of 1-6 participants</li>
+                                    <li>Teams of 4-6 participants</li>
                                     <li>Participants must bring their own laptops and necessary equipment</li>
-                                    <li>All skill levels welcome - from beginners to experienced developers</li>
                                 </ul>
                             </CardContent>
                         </Card>
@@ -153,15 +146,17 @@ const Hackoverflow = () => {
                                 {prizes ? (
                                     <ul className="mt-6 space-y-2 text-lg text-muted-foreground">
                                         <li>
-                                            <strong>1st Place:</strong> ₹50,000 + Internship Opportunities
+                                            <strong>1st Place:</strong> ₹15,000
                                         </li>
                                         <li>
-                                            <strong>2nd Place:</strong> ₹30,000 + Tech Gadgets
+                                            <strong>2nd Place:</strong> ₹12,000
                                         </li>
                                         <li>
-                                            <strong>3rd Place:</strong> ₹20,000 + Swag Kits
+                                            <strong>3rd Place:</strong> ₹8,000
                                         </li>
-
+                                        <li>
+                                            <strong>Total Prize Pool:</strong> ₹35,000
+                                        </li>
                                     </ul>
                                 ) : (
                                     // <div className="flex h-32 items-center justify-center">
@@ -195,10 +190,45 @@ const Hackoverflow = () => {
                         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                             <Card>
                                 <CardContent className="p-6">
-                                    <h3 className="mb-4 text-xl font-bold">Healthcare & Wellness</h3>
+                                    <h3 className="mb-4 text-xl font-bold">AI & Machine Learning</h3>
                                     <p className="text-muted-foreground">
-                                        Develop solutions that address healthcare challenges, improve patient care, or promote wellness and
-                                        healthy living.
+                                        Build intelligent systems using AI and ML to solve real-world problems and automate processes.
+                                    </p>
+                                </CardContent>
+                            </Card>
+
+                            <Card>
+                                <CardContent className="p-6">
+                                    <h3 className="mb-4 text-xl font-bold">Web3 & Blockchain</h3>
+                                    <p className="text-muted-foreground">
+                                        Develop decentralized applications and blockchain solutions for secure, transparent transactions.
+                                    </p>
+                                </CardContent>
+                            </Card>
+
+                            <Card>
+                                <CardContent className="p-6">
+                                    <h3 className="mb-4 text-xl font-bold">Healthcare Technology</h3>
+                                    <p className="text-muted-foreground">
+                                        Create tech solutions to improve healthcare delivery, patient care, and medical outcomes.
+                                    </p>
+                                </CardContent>
+                            </Card>
+
+                            <Card>
+                                <CardContent className="p-6">
+                                    <h3 className="mb-4 text-xl font-bold">Sustainable Development</h3>
+                                    <p className="text-muted-foreground">
+                                        Innovate for environmental sustainability, climate action, and positive social impact.
+                                    </p>
+                                </CardContent>
+                            </Card>
+
+                            <Card>
+                                <CardContent className="p-6">
+                                    <h3 className="mb-4 text-xl font-bold">FinTech Innovation</h3>
+                                    <p className="text-muted-foreground">
+                                        Revolutionize financial services with cutting-edge technology and innovative payment solutions.
                                     </p>
                                 </CardContent>
                             </Card>
@@ -207,38 +237,16 @@ const Hackoverflow = () => {
                                 <CardContent className="p-6">
                                     <h3 className="mb-4 text-xl font-bold">Education Technology</h3>
                                     <p className="text-muted-foreground">
-                                        Create innovative tools and platforms to enhance learning experiences, improve accessibility, or
-                                        address educational challenges.
+                                        Enhance learning experiences through innovative educational tools and platforms.
                                     </p>
                                 </CardContent>
                             </Card>
 
                             <Card>
                                 <CardContent className="p-6">
-                                    <h3 className="mb-4 text-xl font-bold">Sustainability & Environment</h3>
+                                    <h3 className="mb-4 text-xl font-bold">IoT & Smart Devices</h3>
                                     <p className="text-muted-foreground">
-                                        Build solutions that address environmental challenges, promote sustainability, or help communities
-                                        adapt to climate change.
-                                    </p>
-                                </CardContent>
-                            </Card>
-
-                            <Card>
-                                <CardContent className="p-6">
-                                    <h3 className="mb-4 text-xl font-bold">Smart Cities & Infrastructure</h3>
-                                    <p className="text-muted-foreground">
-                                        Develop applications that improve urban living, enhance infrastructure, or make cities more efficient
-                                        and sustainable.
-                                    </p>
-                                </CardContent>
-                            </Card>
-
-                            <Card>
-                                <CardContent className="p-6">
-                                    <h3 className="mb-4 text-xl font-bold">Financial Technology</h3>
-                                    <p className="text-muted-foreground">
-                                        Create solutions that address financial inclusion, improve financial literacy, or enhance financial
-                                        services and transactions.
+                                        Connect and automate the world with Internet of Things solutions and smart device integrations.
                                     </p>
                                 </CardContent>
                             </Card>
@@ -247,8 +255,7 @@ const Hackoverflow = () => {
                                 <CardContent className="p-6">
                                     <h3 className="mb-4 text-xl font-bold">Open Innovation</h3>
                                     <p className="text-muted-foreground">
-                                        Have a unique idea that doesn't fit into the above categories? You're welcome to propose your own
-                                        innovative solution to any real-world problem.
+                                        Have a unique idea that doesn't fit the above categories? Propose your own innovative solution.
                                     </p>
                                 </CardContent>
                             </Card>
