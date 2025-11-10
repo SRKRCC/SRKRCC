@@ -52,6 +52,7 @@ import Registrations from './Pages/JoinUs'
 import Contact from './Pages/Contact'
 import TeamPage from './Pages/TeamPage'
 import Admin from './Admin/Admin'
+import FlashNews from './Components/FlashNews'
 
 
 const App = () => {
@@ -69,6 +70,7 @@ const App = () => {
         // Normal user routes with Navbar & Footer
         <>
           <Navbar />
+          <FlashNews />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/events" element={<EventsPage />} />
