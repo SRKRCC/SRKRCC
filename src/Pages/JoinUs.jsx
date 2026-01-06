@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Check, Upload, Mail, Phone, MapPin, Github, Linkedin, Twitter, Instagram, Sun, Moon, Calendar, Users, BookOpen, UserCheck, GitBranch, Award } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Mail, Phone, Calendar, Users, BookOpen, UserCheck, GitBranch, Award } from 'lucide-react';
 import ScrollToTopButton from "../Components/ScrollToTop"
 import { Button } from '../Components/ui/button';
 import { Link } from 'react-router-dom';
+import SEO from '../Components/SEO';
 export default function Registrations() {
     const [formData, setFormData] = useState({
         firstName: '',
@@ -18,7 +19,7 @@ export default function Registrations() {
         additionalDocs: null
     });
 
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [_isDarkMode, setIsDarkMode] = useState(false);
 
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme');
@@ -44,13 +45,13 @@ export default function Registrations() {
         }));
     };
 
-    const handleFileChange = (e, field) => {
-        const file = e.target.files[0];
-        setFormData(prev => ({
-            ...prev,
-            [field]: file
-        }));
-    };
+    // const handleFileChange = (e, field) => {
+    //     const file = e.target.files[0];
+    //     setFormData(prev => ({
+    //         ...prev,
+    //         [field]: file
+    //     }));
+    // };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -60,7 +61,12 @@ export default function Registrations() {
 
     return (
         <div className="min-h-screen bg-muted/40 transition-all duration-300">
-
+            <SEO 
+                title="Join Us - Become an Affiliate"
+                description="Join SRKR Coding Club as an affiliate member. Get exclusive access to events, hackathons, workshops, and learning resources. Start your tech journey today!"
+                keywords="join SRKR Coding Club, become member, affiliate, coding community, student registration, SRKR Engineering College"
+                canonical="/joinus"
+            />
 
             {/* Hero Section with Modern Design */}
             <div className="text-center mb-16 px-4 sm:px-6 lg:px-2 py-4 ">

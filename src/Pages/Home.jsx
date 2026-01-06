@@ -17,6 +17,7 @@ import {
 } from "lucide-react"
 import ScrollToTopButton from "../Components/ScrollToTop"
 import { Button } from "../Components/ui/button"
+import SEO from "../Components/SEO"
 
 function Counter({ end, duration = 2000 }) {
   const [count, setCount] = useState(0)
@@ -45,7 +46,7 @@ function Counter({ end, duration = 2000 }) {
 }
 
 export default function HomePage() {
-  const [activeTab, setActiveTab] = useState('ongoing');
+  // const [activeTab, setActiveTab] = useState('ongoing');
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -64,6 +65,12 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="SRKR Coding Club"
+        description="SRKR Coding Club is a student-led organization empowering students to enhance coding skills, foster innovation, and build a community of tech enthusiasts at SRKR Engineering College, Bhimavaram."
+        keywords="SRKR Coding Club, SRKRCC, coding, programming, hackathon, SRKR Engineering College, Bhimavaram, tech community, learn programming, student developers"
+        canonical="/"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-background to-muted/50 py-12 sm:py-16 lg:py-20 relative overflow-hidden flex items-center">
         {/* Animated background elements */}

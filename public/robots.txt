@@ -1,0 +1,13 @@
+# Robots.txt for SRKR Coding Club
+# https://srkrcodingclub.in
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /admin
+
+# Sitemap
+Sitemap: https://srkrcodingclub.in/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

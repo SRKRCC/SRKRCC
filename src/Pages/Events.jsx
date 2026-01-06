@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "../Components/ui/button.jsx"
 import { Link } from "react-router-dom";
 import ScrollToTopButton from "../Components/ScrollToTop.jsx";
+import SEO from "../Components/SEO.jsx";
 
 // Mock data
 const mockOngoingEvents = [
@@ -400,6 +401,12 @@ const Events = () => {
     }, []);
     return (
         <div className="min-h-screen">
+            <SEO 
+                title="Events & Activities"
+                description="Discover exciting events, hackathons, workshops, and competitions at SRKR Coding Club. Join HackOverFlow, IconCoderz, and more to enhance your coding journey."
+                keywords="SRKR Coding Club events, hackathon, HackOverFlow, IconCoderz, coding competitions, tech workshops, programming events, Bhimavaram"
+                canonical="/events"
+            />
 
             {ongoingEvents.length > 0 && (
                 <OngoingEventsSection events={ongoingEvents} />

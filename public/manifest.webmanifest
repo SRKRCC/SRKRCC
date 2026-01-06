@@ -1,0 +1,28 @@
+{
+  "name": "SRKR Coding Club",
+  "short_name": "SRKRCC",
+  "description": "Official website of SRKR Coding Club - Empowering students to learn, build, and innovate through coding at SRKR Engineering College, Bhimavaram.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/logonobg.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/srkrcc-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["education", "technology", "community"],
+  "lang": "en",
+  "dir": "ltr"
+}

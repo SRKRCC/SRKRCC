@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '../Components/ui/button';
 import FAQs from '../Components/Faqs';
 import ScrollToTopButton from '../Components/ScrollToTop';
 import Title from '../Components/Title';
+import SEO from '../Components/SEO';
 
 const LocationIcon = () => (
     <svg className="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 20 20">
@@ -62,7 +63,7 @@ export default function Contact() {
         });
     }, []);
 
-    const [openFAQ, setOpenFAQ] = useState(null);
+    // const [openFAQ, setOpenFAQ] = useState(null);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -96,6 +97,12 @@ export default function Contact() {
 
     return (
         <>
+            <SEO 
+                title="Contact Us"
+                description="Get in touch with SRKR Coding Club. Have questions about events, membership, or collaboration? We're here to help. Reach us at SRKR Engineering College, Bhimavaram."
+                keywords="contact SRKR Coding Club, SRKRCC contact, coding club email, SRKR Engineering College, Bhimavaram, collaboration"
+                canonical="/contact"
+            />
             {/* CSS Animations */}
             <style >{`
                 @keyframes spin-slow {
