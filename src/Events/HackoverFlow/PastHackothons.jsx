@@ -20,6 +20,52 @@ const hackoverflow24GalleryImages = [
 ];
 
 const eventData = {
+    '2K25': {
+        title: 'Hackoverflow 2K25',
+        description: 'A 24-hour hackathon focused on building innovative solutions for environmental sustainability. Participants developed projects ranging from waste management trackers to renewable energy dashboards. The event was a huge success, fostering collaboration and creative problem-solving.',
+        location: 'SRKR Engineering College, Bhimavaram.',
+        date: 'December 19-20, 2025',
+        team: 'Teams of 4-6 participants',
+        poster: '/hackoverflow2025.webp',
+        gallerys: hackoverflow24GalleryImages,
+        winners: {
+            first: {
+                teamName: 'Team Ojhas',
+                projectLink: 'SRKR Engineering College',
+                members: ['Chintala Srikar', 'Bera Deepak vardhan', 'Chinta Satyanarayana Reddy' , "Bevara Aakash" , "Gondu Ganesh" , "Boni Sai praneeth"],
+            },
+            second: {
+                teamName: 'Team Ekalavya',
+                projectLink: 'SRKR Engineering College',
+                members: ["G Vijaya Durga" ,"Chinthada Murali Naga Raju","Boyapati Kavya","Mandava Nagasree Kalpana","A Aditya Satvik","Chokkapu saketh"],
+            },
+            third: {
+                teamName: 'Team Veda',
+                projectLink: 'SRKR Engineering College',
+                members: ["S Siri Vaishnavi" ,"S Ganga Bhavani" ,"Malla Venkata Sai ","KPSNV Amith kumar ","K Yesu Ratnam" ,"Leela Madhava Rao"],
+            },
+        },
+        gallery: [
+            { id: 1, url: '/demo/Hackoverflow/photo2.webp', alt: 'Participants brainstorming' },
+            { id: 2, url: '/demo/Hackoverflow/photo7.webp', alt: 'Judges evaluating projects' },
+            { id: 3, url: '/demo/Hackoverflow/photo3.webp', alt: 'Award ceremony' },
+            { id: 4, url: '/demo/Hackoverflow/photo4.webp', alt: 'Networking session' },
+            { id: 5, url: '/demo/Hackoverflow/photo5.webp', alt: 'Team presentations' },
+            { id: 6, url: '/demo/Hackoverflow/photo6.webp', alt: 'Hackathon venue' },
+        ],
+        testimonials: [
+            { author: 'Satyanarayana reddy', quote: '"An amazing platform to learn and grow! The problems were challenging yet motivating, and interacting with fellow coders made the experience even more enjoyable."' },
+            { author: 'Aditya', quote: 'A well-organized and inspiring event. The guidance from mentors, competitive atmosphere, and team spirit pushed everyone to give their best.' },
+        ],
+        feedback: 'Participants gave the event a 4.8/5 rating, highlighting the quality of the workshops and the event organization.',
+        videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // A placeholder video link
+
+        sponsors: [
+            { id: 1, url: '/demo/Hackoverflow/edu expose.webp', alt: 'Judges evaluating projects' },
+            { id: 2, url: '/demo/Hackoverflow/Nareshhostel.webp', alt: 'Award ceremony' },
+            { id: 3, url: '/demo/Hackoverflow/Sp1.webp', alt: 'Networking session' },
+        ],
+    },
     '2K24': {
         title: 'Hackoverflow 2K24',
         description: 'A 24-hour hackathon focused on building innovative solutions for environmental sustainability. Participants developed projects ranging from waste management trackers to renewable energy dashboards. The event was a huge success, fostering collaboration and creative problem-solving.',
@@ -119,7 +165,7 @@ const eventData = {
 };
 
 export default function PastHackothons() {
-    const [selectedEvent, setSelectedEvent] = useState('2K24');
+    const [selectedEvent, setSelectedEvent] = useState('2K25');
     const mainContentRef = useRef(null);
     const currentEvent = eventData[selectedEvent];
     const eventYears = Object.keys(eventData).sort((a, b) => b.localeCompare(a));

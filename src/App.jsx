@@ -12,27 +12,27 @@ import Edgecase from './Events/Edgecase'
 import Affiliates from './Pages/Affiliates'
 import Registrations from './Pages/JoinUs'
 import Contact from './Pages/Contact'
-import TeamPage from './Pages/TeamPage'
-import Admin from './Admin/Admin'
+// import TeamPage from './Pages/TeamPage'
+// import Admin from './Admin/Admin'
 import FlashNews from './Components/FlashNews'
-// import Popup from './Components/PopUp'
+import Popup from './Components/PopUp'
 
 
 const App = () => {
   const location = useLocation()
-  const isAdminRoute = location.pathname.startsWith('/admin')
+  // const isAdminRoute = location.pathname.startsWith('/admin')
 
   return (
     <div>
-      {isAdminRoute ? (
+      {/* {isAdminRoute ? (
         <Routes>
           <Route path="/admin/*" element={<Admin />} />
         </Routes>
-      ) : (
+      ) : ( */}
         <>
           <Navbar />
           <FlashNews />
-          {/* <Popup/> */}
+          <Popup/>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/events" element={<EventsPage />} />
@@ -48,7 +48,7 @@ const App = () => {
           </Routes>
           <Footer />
         </>
-      )}
+      {/* )} */}
     </div>
   )
 }

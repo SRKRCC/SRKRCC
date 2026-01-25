@@ -36,7 +36,7 @@ const Popup = () => {
                 {/* Image Section */}
                 <div className="relative mb-4 flex justify-center items-center w-full h-56 sm:h-72 max-h-80 overflow-hidden rounded-lg shadow-md">
                     <Image
-                        src="/hackoverflow2025.webp"
+                        src="/iconcoderz2k26.webp"
                         className={`w-full h-full object-contain transition-all duration-500 ${imageLoaded ? 'filter-none' : 'filter blur'}`}
                         onLoad={handleImageLoad}
                         style={{ transition: "filter 0.5s" }}
@@ -45,14 +45,14 @@ const Popup = () => {
 
                 <ul className="space-y-2 text-gray-700 list-disc px-4 text-left">
                     <li>
-                        Participants may also bring their own problem statements, provided they align with one or a mix of the hackathon themes.
+                        Participants are required to solve Data Structures and Algorithms (DSA) problems that test logical thinking, problem-solving skills, and coding efficiency.
                     </li>
                 </ul>
 
                 {/* Register Button */}
                 <div className="mt-6 text-center">
                     <a
-                        href="https://hackoverflow.srkrcodingclub.in"
+                        href="https://iconcoderz.srkrcodingclub.in"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="font-bold text-white px-6 py-2 rounded-lg bg-red-500 hover:bg-red-600 transition duration-300 ease-in-out shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500"

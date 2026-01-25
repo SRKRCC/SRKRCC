@@ -9,11 +9,11 @@ import SEO from "../Components/SEO.jsx";
 const mockOngoingEvents = [
     {
         id: 1,
-        title: "HackOverFlow 2K25",
-        description: "24-hour hackathon to build innovative solutions.",
-        date: "13th December, 2025",
-        poster: "hackoverflow2025.webp",
-    },
+        title: "IconCoderz 2K26",
+        description: "A competitive coding event designed to challenge problem-solving skills and logical thinking.",
+        date: "23rd February, 2026",
+        poster: "iconcoderz2k26.webp",
+    }
 ];
 
 const mockAllEvents = [

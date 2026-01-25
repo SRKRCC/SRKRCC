@@ -24,7 +24,7 @@ const IconCoderz = () => {
         <div>
             {/* Hero Section */}
             <section className="relative overflow-hidden bg-gradient-to-b from-background to-muted/50 py-16 md:py-24">
-                <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
                     <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full animate-float"></div>
                     <div className="absolute top-40 right-20 w-16 h-16 bg-accent/10 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
                     <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-primary/5 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
@@ -53,16 +53,14 @@ const IconCoderz = () => {
                             </div>
                             <div className="flex flex-wrap gap-4">
                                 <Button size="lg" asChild>
-                                    <Link href="#register">Reveal Soon....</Link>
+                                    <a href="https://iconcoderz.srkrcodingclub.in" target="_blank" rel="noopener noreferrer">Register Now</a>
                                 </Button>
-                                <Button variant="outline" size="lg" asChild>
-                                    <Link href="#details">Learn More</Link>
-                                </Button>
+                                
                             </div>
                         </div>
                         <div className="w-full max-w-2xl flex justify-center items-center bg-white rounded-lg shadow-xl">
                             <img
-                                src="/demo/Iconcoderz/cover.jpg"
+                                src="/iconcoderz2k26.webp"
                                 alt="IconCoderz"
                                 width={600}
                                 height={380}
