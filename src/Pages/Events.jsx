@@ -7,18 +7,25 @@ import SEO from "../Components/SEO.jsx";
 
 // Mock data
 const mockOngoingEvents = [
+    // {
+    //     id: 1,
+    //     title: "IconCoderz 2K26",
+    //     description: "A competitive coding event designed to challenge problem-solving skills and logical thinking.",
+    //     date: "23rd February, 2026",
+    //     poster: "iconcoderz2k26.webp",
+    // }
+];
+
+const mockAllEvents = [
     {
         id: 1,
         title: "IconCoderz 2K26",
         description: "A competitive coding event designed to challenge problem-solving skills and logical thinking.",
         date: "23rd February, 2026",
         poster: "iconcoderz2k26.webp",
-    }
-];
-
-const mockAllEvents = [
+    },
     {
-        id: 1,
+        id: 2,
         title: "HackOverFlow 2K25",
         description: "24-hour hackathon to build innovative solutions.",
         date: "December 19-20, 2025",
@@ -30,7 +37,7 @@ const mockAllEvents = [
         poster: "hackoverflow2025.webp",
     },
     {
-        id: 2,
+        id: 3,
         title: "IconCoderZ 2K25",
         description: "Competitive programming contest for all skill levels",
         date: "April 5, 2025",
@@ -42,7 +49,7 @@ const mockAllEvents = [
         poster: "demo/EventPosters/iconcoderz-2k25.png",
     },
     {
-        id: 3,
+        id: 4,
         title: "Hridayam 2K25",
         description: "Cultural and technical fest celebration",
         date: "April 15, 2024",
@@ -55,7 +62,7 @@ const mockAllEvents = [
 
     },
     {
-        id: 4,
+        id: 5,
         title: "HackOverFlow 2K24",
         description: "Annual 24-hour hackathon to build innovative solutions.",
         date: "October 18-19, 2024",
@@ -67,7 +74,7 @@ const mockAllEvents = [
         poster: "/demo/EventPosters/Hackoverflow2k24.png",
     },
     {
-        id: 5,
+        id: 6,
         title: "IconCoderZ 2K24",
         description: "Coding competition with expert and beginner levels",
         date: "February 12, 2024",
