@@ -31,8 +31,8 @@ const App = () => {
       ) : ( */}
         <>
           <Navbar />
-          <FlashNews />
-          <Popup/>
+          {/* <FlashNews /> */}
+          {/* <Popup/> */}
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/events" element={<EventsPage />} />
