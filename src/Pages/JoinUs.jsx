@@ -332,7 +332,7 @@ export default function Registrations() {
                         <div className="flex items-center bg-white dark:bg-gray-800 px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-200">
                             <Phone className="w-5 h-5 text-[#FFA500] dark:text-[#FF8C00] mr-3" />
                             <a href="tel:+91 9100579797" className="text-[#FFA500] dark:text-[#FF8C00] hover:text-[#FFA500] dark:hover:text-[#FF8C00] font-medium">
-                                +91  9100579797
+                                +91  8500216667
                             </a>
                         </div>
                     </div>

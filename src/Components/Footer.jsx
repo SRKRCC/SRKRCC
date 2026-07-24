@@ -40,11 +40,12 @@ export default function Footer() {
                 <Mail className="h-4 w-4 text-primary" />
                 <a href="mailto:contact@srkrcodingclub.org" className="hover:text-primary">
                   srkrcodingclubofficial@gmail.com
-                </a>
+                </a>             
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-primary" />
-                <span>+91 9100579797</span>
+                <span>+91 8500216667 ,</span>
+                <span>+91 7997266366 </span>      
               </div>
             </div>
 
