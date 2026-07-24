@@ -22,6 +22,8 @@ const mockAllEvents = [
         title: "IconCoderz 2K26",
         description: "A competitive coding event designed to challenge problem-solving skills and logical thinking.",
         date: "23rd February, 2026",
+        location:"SRKR Engineering College",
+        status:"Completed",
         poster: "iconcoderz2k26.webp",
     },
     {
@@ -32,7 +34,7 @@ const mockAllEvents = [
         participants: "200+ Participants",
         prizes: "₹35,000",
         location: "SRKR Engineering College, Bhimavaram.",
-        status: "upcoming",
+        status: "Completed",
         category: "Hackathon",
         poster: "hackoverflow2025.webp",
     },

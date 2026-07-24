@@ -273,9 +273,20 @@ export default function Contact() {
                                         <PhoneIcon />
                                         <div>
                                             <h3 className="font-bold text-card-foreground text-sm">Phone</h3>
-                                            <a href="tel:+91 9100579797">
+                                            <a href="tel:+91 8500216667">
                                                 <p className="text-xs text-muted-foreground mt-1">
-                                                    9100579797
+                                                    8500216667
+                                                </p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-start space-x-2">
+                                        <PhoneIcon />
+                                        <div>
+                                            <h3 className="font-bold text-card-foreground text-sm">Phone</h3>
+                                            <a href="tel:+91 7997266366">
+                                                <p className="text-xs text-muted-foreground mt-1">
+                                                    7997266366
                                                 </p>
                                             </a>
                                         </div>
@@ -350,9 +361,9 @@ export default function Contact() {
                                 <PhoneIcon />
                                 <div>
                                     <h3 className="font-bold text-card-foreground text-sm">Phone</h3>
-                                    <a href="tel:+91 9100579797">
+                                    <a href="tel:+91 8500216667">
                                         <p className="text-xs text-muted-foreground mt-1">
-                                            9100579797
+                                            8500216667,7997266366
                                         </p>
                                     </a>
                                 </div>

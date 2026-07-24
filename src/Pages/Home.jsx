@@ -316,15 +316,15 @@ export default function HomePage() {
                 title: "Email",
                 content: [
                   "srkrcodingclubofficial@gmail.com",
-                  "davidrajukuppala@srkrec.ac.in",
+                  "hpdandu@srkrec.ac.in",
                 ]
               },
               {
                 icon: Phone,
                 title: "Phone",
                 content: [
-                  "+91 8121702286",
-                  "+91 9100579797",
+                  "+91 8500216667",
+                  "+91 7997266366",
                 ]
               }
             ].map((contact, index) => (
